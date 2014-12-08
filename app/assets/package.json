@@ -1,0 +1,26 @@
+{
+  "name": "Vitabiotics",
+  "version": "1.0.0",
+  "description": "Vitabiotics ERP application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bl4ckdu5t/vitabiotics"
+  },
+  "keywords": [
+    "vitabiotics",
+    "company"
+  ],
+  "author": "Joseph Rex",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/bl4ckdu5t/vitabiotics/issues"
+  },
+  "homepage": "https://github.com/bl4ckdu5t/vitabiotics",
+  "devDependencies": {
+    "grunt-contrib-uglify": "^0.6.0"
+  }
+}

@@ -1,4 +1,0 @@
-vitabiotics-rails
-=================
-
-Rails App

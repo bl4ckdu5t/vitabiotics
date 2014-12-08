@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff_id: 1
+  registration_no: MyString
+  confirm_date: 2014-12-05 11:05:56
+  guarantor_name: MyString
+  guarantor_dept: MyString
+  loan_purpose: MyString
+  loan_approved: 1
+  monthly_deduction: MyString
+
+two:
+  staff_id: 1
+  registration_no: MyString
+  confirm_date: 2014-12-05 11:05:56
+  guarantor_name: MyString
+  guarantor_dept: MyString
+  loan_purpose: MyString
+  loan_approved: 1
+  monthly_deduction: MyString

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff_id: 1
+  type: 
+  registration_no: MyString
+  duration: MyString
+  commence_date: 2014-12-05 10:36:13
+  resume_date: 2014-12-05 10:36:13
+  reason: MyString
+  encashment: MyString
+
+two:
+  staff_id: 1
+  type: 
+  registration_no: MyString
+  duration: MyString
+  commence_date: 2014-12-05 10:36:13
+  resume_date: 2014-12-05 10:36:13
+  reason: MyString
+  encashment: MyString

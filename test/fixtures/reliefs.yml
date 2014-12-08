@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-12-05 10:11:15
+  type: 
+  staff_id: 1
+  reason: MyString
+  time_out: 2014-12-05 10:11:15
+  time_in: 2014-12-05 10:11:15
+
+two:
+  date: 2014-12-05 10:11:15
+  type: 
+  staff_id: 1
+  reason: MyString
+  time_out: 2014-12-05 10:11:15
+  time_in: 2014-12-05 10:11:15
