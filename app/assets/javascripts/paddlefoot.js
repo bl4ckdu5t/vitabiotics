@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(window).stellar();
+	//$(window).stellar();
 	// Background Color preference preview
 	$('[name="theme"]').click(function(){
 		var color = $(this).prop('id');
