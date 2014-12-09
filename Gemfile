@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Authentication Devise
+gem 'devise'
 # Bcrypt for password hashing
 gem 'bcrypt', :require => 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
