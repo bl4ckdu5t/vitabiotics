@@ -9,21 +9,23 @@
 	<link rel="stylesheet" media="all" href="/aside/styles.css">
 	<link rel="shortcut icon" href="favicon.ico">
 	<title>Log in - Vitabiotics</title>
-	<script src="js/vendor/modernizr-2.6.2.min.js"></script> 
+	<script src="/aside/modernizr-2.6.2.min.js"></script> 
 </head>
 <body style="background:#eee;color:#888">
-	<div class="login-alert ghost">Wrong Username or Password</div>
+	<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}", class: 'login-alert' %>
+	<% end %>
 	<div class="login-form">
 		<div class="top-colors"><div></div><div></div><div></div><div></div></div>
 		<div class="login-header"></div>
-		<form action="" class="clearfix">
-			<label for="email">Username</label>
-			<input type="text" name="email" placeholder="Email or Username">
-			<label for="password">Password</label>
-			<input type="password" name="password" placeholder="***********">
+		<%= form_tag sessions_path, class: 'clearfix' do %>
+			<%= label_tag :email %>
+			<%= text_field_tag :email, params[:email], placeholder: 'Email', type: 'email' %>
+			<%= label_tag :password %>
+			<%= password_field_tag :password, params[:password], placeholder: '******' %>
 			<button class="fr" type="submit">Log In</button>
 			<span><a href="">Forgot Password?</a></span>
-		</form>
+		<% end %>
 	</div>
 	<div class="login-links"><a href="<%= root_url %>">Back to website</a></div>
 	<!-- Scripts -->

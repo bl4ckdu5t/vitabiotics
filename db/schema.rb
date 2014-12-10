@@ -115,7 +115,8 @@ ActiveRecord::Schema.define(version: 20141205171114) do
     t.string   "usertype"
     t.string   "email"
     t.string   "avatar"
-    t.string   "password"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
