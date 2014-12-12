@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141205171114) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attendance", force: true do |t|
     t.integer  "staff_id"
     t.datetime "absence_date"
