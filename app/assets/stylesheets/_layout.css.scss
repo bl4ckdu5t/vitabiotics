@@ -27,7 +27,7 @@ body {
 }
 
 ::selection {
-  background: #999999;
+  background: transparent;
   color: white;
 }
 
@@ -221,12 +221,13 @@ header {
         background: #eeeeee;
       }
     }
+    [data-accord]:after{
+      content: url(/assets/svg/circle-down.svg);
+      float: right;
+    }
     ul {
       list-style-type: none;
-      li:before {
-        content: url(/assets/svg/tag.svg);
-        margin-right: 10px;
-      }
+      display: none;
     }
   }
 }
