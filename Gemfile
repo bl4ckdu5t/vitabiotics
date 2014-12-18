@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Get susy for grids
+gem 'susy'
 # Bcrypt for password hashing
 gem 'bcrypt', :require => 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -9,9 +11,8 @@ gem 'pg'
 group :assets do
 end
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# YUI to compress CSS files
-#gem 'yui-compressor', '~> 0.12.0'
+#gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0.beta1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

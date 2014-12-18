@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index', as: :dashboard
   get 'login' => 'welcome#login'
 
-  root 'welcome#index'
+  root 'sessions#new'
 end

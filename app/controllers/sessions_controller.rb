@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout false
+  layout global:
   def new
   end
 

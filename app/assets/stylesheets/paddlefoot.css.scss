@@ -1,0 +1,495 @@
+@import "variables";
+@import "mixins";
+@import "grids";
+@import "fonts";
+@import "h5bp";
+
+* {
+  @include box-sizing(border-box);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  background: #eeeeee;
+  font-size: 1.5em;
+  color: #888888;
+}
+
+*:focus {
+  outline: 3px solid rgba(62, 184, 179, $reg_alpha);
+}
+
+::selection {
+  background: #999999;
+  color: white;
+}
+
+.sidebar {
+  background: #272a33;
+  width: 15%;
+  position: fixed;
+  height: 100%;
+  text-align: center;
+  header {
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 2px 3px #555555;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  >img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: solid 4px rgba($white, 0.5);
+  }
+  >h3, >h4 {
+    color: $white;
+  }
+  >h3 {
+    margin-bottom: 2px;
+  }
+  >h4 {
+    margin-top: 2px;
+    font-weight: 300;
+  }
+  >ul {
+    list-style-type: none;
+    padding: 0;
+    color: #767e96;
+    li {
+      font-weight: 400;
+      font-size: 15px;
+      text-align: left;
+      position: relative;
+      &.active {
+        background: url(/assets/pointer.png) #18191f no-repeat right;
+        background-size: 20px;
+      }
+      &:hover {
+        background: #18191f;
+      }
+      a {
+        display: block;
+        padding: 20px 10px 20px 50px;
+        line-height: 10px;
+      }
+    }
+    svg {
+      fill: #767e96;
+      position: absolute;
+      top: 12px;
+      left: 20px;
+    }
+  }
+}
+
+header {
+  background: rgba($color-red-vitabiotics, 0.9);
+  color: $white;
+  height: 60px;
+  position: relative;
+  input[type="text"] {
+    border: none;
+    position: absolute;
+    vertical-align: bottom;
+    bottom: 10px;
+    left: 10px;
+    color: $white;
+    background: url(/assets/search-icon-white-sm.png) no-repeat;
+    background-color: transparent;
+    background-size: 15px;
+    height: 20px;
+    font-weight: 300;
+    padding: 0 0 5px 20px;
+    &:focus, &:active {
+      outline: none;
+      border-bottom: solid thin $white;
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: $white;
+    font-size: 14px;
+    font-family: "Roboto Condensed";
+    padding-bottom: 30px;
+  }
+  ::-moz-placeholder {
+    color: $white;
+    font-size: 14px;
+    font-family: "Roboto Condensed";
+    padding-bottom: 30px;
+  }
+  -ms-input-placeholder: {
+    color: $white;
+    font-size: 14px;
+    font-family: "Roboto Condensed";
+    padding-bottom: 30px;
+  };
+  input:-moz-placeholder {
+    color: $white;
+    font-size: 14px;
+    font-family: "Roboto Condensed";
+    padding-bottom: 30px;
+  }
+}
+
+.board {
+  float: right;
+  width: 85%;
+  header {
+    ul {
+      position: absolute;
+      right: 0;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      height: 100%;
+      li {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: 80px;
+        height: 100%;
+        text-align: center;
+        a {
+          display: block;
+          padding: 17px;
+          &:hover {
+            background: rgb(209, 17, 63);
+          }
+        }
+        svg {
+          fill: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+  }
+}
+
+.head-image {
+  height: 200px;
+  position: relative;
+  background: url(/assets/abstract.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  .layer {
+    height: inherit;
+    width: 100%;
+    position: absolute;
+    background: rgba($black, 0.5);
+  }
+  h2 {
+    color: $white;
+    padding-left: 20px;
+  }
+}
+
+[class^="row-"], [class*=" row-"] {
+  @include container(100%);
+  margin-top: 20px;
+  margin-left: 20px;
+  >div {
+    .content {
+      background: $white;
+      border: solid 1px #dddddd;
+    }
+  }
+  .title {
+    background: $color-red-vitabiotics;
+    color: $white;
+    height: 50px;
+    padding: 15px 10px;
+  }
+  .accord-style {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 14px;
+    li {
+      border: solid thin #dddddd;
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      &:hover {
+        background: #eeeeee;
+      }
+    }
+    ul {
+      list-style-type: none;
+      li:before {
+        content: url(/assets/svg/tag.svg);
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.row-doubles {
+  >div {
+    @include span(48%);
+    background: none;
+  }
+}
+
+.row-one {
+  >div {
+    @include span(48%);
+    height: 150px;
+    padding: 10px;
+    background: $white;
+    border: solid 1px #dddddd;
+  }
+}
+
+.row-two {
+  >div {
+    @include span(23.2%);
+    height: 100px;
+    padding: 10px;
+    text-align: right;
+    position: relative;
+    padding-right: 20px;
+    background: $white;
+    border: solid 1px #dddddd;
+    >svg {
+      background: #dddddd;
+      width: 50px;
+      height: 50px;
+      padding: 5px;
+      border-radius: 50%;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+    >h3 {
+      margin-top: 20px;
+      margin-bottom: 5px;
+      color: $black;
+      &:hover {
+        color: #666666;
+      }
+    }
+  }
+}
+
+.form-row {
+  @include container(100%);
+  margin: 10px 0;
+  min-height: 50px;
+  >div {
+    &:first-of-type {
+      @include span(20%);
+      font-weight: 700;
+    }
+  }
+  input[type="url"],input[type="text"],input[type="email"],input[type="password"] {
+    height: 30px;
+    width: 400px;
+    border: solid 1px #dddddd;
+    box-shadow: 1px 0 2px #aaaaaa inset;
+    padding: 2px 5px;
+  }
+}
+
+.pink {
+  background: $color-red-vitabiotics;
+}
+
+.blue {
+  background: $background-cool-blue;
+}
+
+.orange {
+  background: $color-pure-orange;
+}
+
+.purple {
+  background: #aa55cc;
+}
+
+.iron {
+  background: $iron;
+}
+
+.showbox {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  @include gradient-dark-linear;
+}
+
+button.btn {
+  color: $white;
+  border: solid thin $skyblue;
+  background: #1166aa;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background: #1166aa;
+    @include gradient-dark-linear;
+    color: #eeeeee;
+  }
+}
+
+.clean-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  li {
+    border: solid thin #eeeeee;
+    padding: 10px;
+  }
+}
+
+.read-more {
+  margin-top: 10px;
+  border: solid thin #eeeeee;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.inline-block+a>svg {
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  background: #555555;
+  fill: $white;
+  border-radius: 50%;
+  padding: 10px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+h2.inline-block {
+  line-height: 10px;
+}
+
+.listings {
+  width: 98%;
+  background: $white;
+  margin: 10px 0px 10px 0px;
+  border: solid thin #dddddd;
+  thead {
+    th {
+      text-align: left;
+      border-bottom: solid thin #dddddd;
+    }
+  }
+  th, td {
+    padding: 8px 5px;
+    strong {
+      display: block;
+    }
+    span {
+      font-size: 12px;
+      padding: 0 10px;
+      &:first-of-type {
+        padding-left: 0 !important;
+        color: $color-pure-orange;
+      }
+      &:nth-of-type(2) {
+        color: $myblue;
+      }
+      &:last-of-type {
+        color: red;
+      }
+      &:not(:last-child) {
+        border-right: solid thin #cccccc;
+      }
+    }
+    &:first-of-type {
+      width: 4%;
+    }
+  }
+  tbody {
+    color: #272a33;
+    tr:nth-child(odd) {
+      background: #eeeeee;
+    }
+  }
+}
+
+.header-display {
+  display: block;
+  margin-bottom: 10px;
+  background: url(/assets/abstract.jpg);
+  background-size: cover;
+  width: 80%;
+  border: solid 4px #cccccc;
+  height: 100px;
+}
+
+.staffImage {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  border: solid 3px #888888;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.staffData {
+  margin: 0 auto;
+  margin-top: 20px;
+  background: $white;
+  width: 800px;
+  border: solid thin #bbbbbb;
+  .topbar {
+    background: #eeeeee;
+    height: 40px;
+    border-bottom: solid thin #bbbbbb;
+    padding: 6px 10px;
+    svg {
+      float: right;
+    }
+  }
+  .entry {
+    padding: 20px 10px;
+    >em {
+      display: block;
+      margin-bottom: 10px;
+      color: $color-red-vitabiotics;
+    }
+    p:not(.formline) {
+      margin: 0;
+      border-top: solid thin #bbbbbb;
+      padding: 10px 0;
+      position: relative;
+      span {
+        position: absolute;
+        left: 200px;
+      }
+    }
+  }
+}
+
+.formline {
+  position: relative;
+  input,select {
+    position: absolute;
+    left: 200px;
+  }
+}
+
+/* Login Form */
+.login-form{background:#fff;width:350px;height:300px;margin:0 auto;margin-top:150px;box-shadow:0 0 10px #555555}.login-form form{padding:20px 20px;font-size:12px}.login-form input{margin-bottom:10px;width:100%;padding:2px 10px;height:40px;border:none;background:#eeeeee;border:solid thin #aaaaaa}.login-form input:active,.login-form input:focus{background:#fff}.login-form button{color:#fff;border:solid thin #9bc1f5;background:#1166aa;padding:8px 20px;border-radius:5px;cursor:pointer}.login-form button:hover{background:#1166aa;background-image:-webkit-linear-gradient(rgba(0,0,0,0.25), transparent);background-image:-webkit-linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0));background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0));color:#eeeeee}.login-links{width:100%;text-align:center;margin-top:20px}.top-colors{height:5px;max-width:100%;margin-left:auto;margin-right:auto}.top-colors:after{content:" ";display:block;clear:both}.top-colors>div{width:25%;float:left;margin-right:1.69492%;margin:0;height:100%;background:#b21f1f}.top-colors>div:first-of-type{background:#c69}.top-colors>div:nth-of-type(2){background:#9bc1f5}.top-colors>div:nth-of-type(3){background:#76e0a2}.top-colors>div:last-of-type{background:#fab782}.login-header{height:80px;width:100%;background:url(/assets/logo.png) center no-repeat #ddd;background-size:100px;border-bottom:solid 4px #888888}.login-alert{background:#fff;position:absolute;top:80px;left:0;right:0;margin:0 auto;width:350px;padding:10px;box-shadow:0 3px 2px #888888;font-size:12px;border-left:solid thick tomato}.login-alert:empty{display:none}
+@import "helpers";
