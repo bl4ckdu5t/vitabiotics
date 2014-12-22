@@ -7,6 +7,7 @@ $(document).ready(function(){
 		$('header').css('background','rgba('+ rgb +',.9)');
 		$('.board header a:hover').css('background', 'rgb('+rgb+')');
 	});
+	// Accordion
 	$('ul.accord-style>li[data-accord]').click(function(){
 		var accordId = $(this).data('accord');
 		$(this).siblings('ul#'+accordId).toggle();

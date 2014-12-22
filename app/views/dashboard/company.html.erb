@@ -1,52 +1,20 @@
 <section class="row-doubles">
-	<h2 class="inline-block">Manage Staffs</h2>
-	<a href="" title="Add New">
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 32 32">
-	<g id="icomoon-ignore"></g>
-	<path d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
-	</svg>
-	</a>
-	<table class="listings">
-		<thead>
-			<tr>
-				<th><input class="checkbox" type="checkbox"></th>
-				<th>Staff</th>
-				<th>From</th>
-				<th>To</th>
-				<th>Department</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>
-					<strong>Adams savage</strong>
-					<span>Edit</span><span>View</span><span>Delete</span>
-				</td>
-				<td>12-07-2012</td>
-				<td>Present</td>
-				<td>Treasurer</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>
-					<strong>Melina Monroe</strong>
-					<span>Edit</span><span>View</span><span>Delete</span>
-				</td>
-				<td>08-06-2005</td>
-				<td>Present</td>
-				<td>Managing Director</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>
-					<strong>Wunmi Adegbenro</strong>
-					<span>Edit</span><span>View</span><span>Delete</span>
-				</td>
-				<td>15-07-2005</td>
-				<td>18-09-2010</td>
-				<td>Account Manager</td>
-			</tr>
-		</tbody>
-	</table>
+	<div>
+		<div class="title">Add Department</div>
+		<div class="content pad10">
+			<%= form_tag do %>
+			<p>
+				<%= label_tag :department, 'Department Name' %>
+				<%= text_field_tag 'department' %>
+			</p>
+			<p>
+				<%= label_tag :parent %>
+				<% department_array = @departments.all.map { |department| [department.name, department.id + 1] } %>
+				<%= select_tag :parent, options_for_select(department_array) %>
+			</p>
+			<%= submit_tag 'Add Department', class: 'btn-std' %>
+			<% end %>
+		</div>
+	</div>
+	<div>stuff</div>
 </section>

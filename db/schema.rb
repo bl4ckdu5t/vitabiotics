@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20141205171114) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
-    t.boolean  "child_department"
     t.string   "parent"
     t.datetime "created_at"
     t.datetime "updated_at"

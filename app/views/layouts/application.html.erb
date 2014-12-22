@@ -17,8 +17,8 @@
 <section class="sidebar">
 	<header title="Vitabiotics"><a href="../">Vitabiotics</a></header>
 	<%= image_tag '5.jpg',alt: 'profile' %>
-	<h3 title="Jennifer">Jennifer</h3>
-	<h4 title="Danielson">Danielson</h4>
+	<h3 title="<%= User.find(@current_user).name.split(' ')[0] %>"><%= User.find(@current_user).name.split(' ')[0] %></h3>
+	<h4 title="<%= User.find(@current_user).name.split(' ')[1] %>"><%= User.find(@current_user).name.split(' ')[1] %></h4>
 	<ul>
 		<li class="<%= request.path == '/dashboard' ? 'active':'' %>">
 			<%= link_to dashboard_path do %>

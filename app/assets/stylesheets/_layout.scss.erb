@@ -39,9 +39,9 @@ body {
   text-align: center;
   header {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
     text-shadow: 0 2px 3px #555555;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 20px;
   }
   >img {
@@ -69,12 +69,16 @@ body {
       font-size: 15px;
       text-align: left;
       position: relative;
-      &.active {
-        background: url(/assets/pointer.png) #18191f no-repeat right;
-        background-size: 20px;
-      }
       &:hover {
         background: #18191f;
+      }
+      &.active {
+        background: image-url("pointer.png") #18191f no-repeat right;
+        background-size: 20px;
+        &:hover{
+          background: image-url("pointer.png") #18191f no-repeat right;
+          background-size: 20px;
+        }
       }
       a {
         display: block;
@@ -85,7 +89,7 @@ body {
     svg {
       fill: #767e96;
       position: absolute;
-      top: 12px;
+      top: 15px;
       left: 20px;
     }
   }
@@ -103,7 +107,7 @@ header {
     bottom: 10px;
     left: 10px;
     color: $white;
-    background: url(/assets/search-icon-white-sm.png) no-repeat;
+    background: image-url("search-icon-white-sm.png") no-repeat;
     background-color: transparent;
     background-size: 15px;
     height: 20px;
@@ -176,7 +180,7 @@ header {
 .head-image {
   height: 200px;
   position: relative;
-  background: url(/assets/abstract.jpg);
+  background: image-url("abstract.jpg");
   background-size: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -222,7 +226,7 @@ header {
       }
     }
     [data-accord]:after{
-      content: url(/assets/svg/circle-down.svg);
+      content: image-url("svg/circle-down.svg");
       float: right;
     }
     ul {
@@ -290,7 +294,7 @@ header {
       font-weight: 700;
     }
   }
-  input[type="url"],input[type="text"],input[type="email"],input[type="password"] {
+  input[type="image-url"],input[type="text"],input[type="email"],input[type="password"] {
     height: 30px;
     width: 400px;
     border: solid 1px #dddddd;
@@ -425,7 +429,7 @@ h2.inline-block {
 .header-display {
   display: block;
   margin-bottom: 10px;
-  background: url(/assets/abstract.jpg);
+  background: image-url("abstract.jpg");
   background-size: cover;
   width: 80%;
   border: solid 4px #cccccc;
@@ -568,7 +572,7 @@ h2.inline-block {
 .login-header {
   height: 80px;
   width: 100%;
-  background: url(/assets/logo.png) center no-repeat #dddddd;
+  background: image-url("logo.png") center no-repeat #dddddd;
   background-size: 100px;
   border-bottom: solid 4px #888888;
 }
@@ -587,5 +591,27 @@ h2.inline-block {
   border-left: solid thick tomato;
   &:empty {
     display: none;
+  }
+}
+/* End of Login Form */
+.content p{
+  input[type="text"],input[type="email"],input[type="password"],select,textarea{
+    width: 100%;
+    height: 40px;
+    font-size: 1.3em;
+    padding: 0 5px;
+  }
+}
+.btn-std{
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background: $color-red-vitabiotics;
+  color: $white;
+  @include three-d(#aaaaaa);
+  &:hover{
+    background: darken($color-red-vitabiotics, 7);
   }
 }
