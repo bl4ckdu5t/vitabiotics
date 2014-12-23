@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   def create
   	user = User.authenticate(params[:email], params[:password])
   	if user
+      reset_session
   		session[:user_id] = user.id
   		redirect_to dashboard_path
   	else
