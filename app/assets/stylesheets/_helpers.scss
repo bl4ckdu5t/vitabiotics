@@ -40,16 +40,19 @@
 .topmag20 {
   margin-top: 20px;
 }
+.leftmag10{
+  margin-left: 10px;
+}
 
 .background-cool-blue.background-cool-blue.background-cool-blue {
   background: $background-cool-blue;
 }
 
-.background-deep-orange.background-deep-orange {
+.background-deep-orange.background-deep-orange.background-deep-orange.background-deep-orange {
   background: #ee2222;
 }
 
-.background-money-green.background-money-green {
+.background-money-green.background-money-green.background-money-green.background-money-green {
   background: #22bb55;
 }
 
@@ -69,7 +72,7 @@
 .inline-block {
   display: inline-block;
 }
-
+.block{ display: block; }
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
 
@@ -121,4 +124,23 @@
 
 .txtcenter {
   text-align: center;
+}
+.pink {
+  background: $color-red-vitabiotics;
+}
+
+.blue.blue.blue.blue {
+  background: $background-cool-blue;
+}
+
+.orange {
+  background: $color-pure-orange;
+}
+
+.purple {
+  background: $color-purple;
+}
+
+.iron {
+  background: $iron;
 }

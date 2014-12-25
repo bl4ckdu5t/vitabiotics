@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require sweetalert/lib/sweet-alert
+//= require list.pagination.js/dist/list
+//= require list.pagination.js/dist/list.pagination
 //= require_tree .

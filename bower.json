@@ -1,0 +1,29 @@
+{
+  "name": "vitabiotics",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bl4ckdu5t/vitabiotics",
+  "authors": [
+    "bl4ckdu5t <joerexko@gmail.com>"
+  ],
+  "description": "company ERP",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "staffs",
+    "company",
+    "dashboard"
+  ],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

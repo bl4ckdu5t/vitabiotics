@@ -6,10 +6,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'login' => 'sessions#new', as: :log_in
   get 'logout' => 'sessions#destroy', as: :log_out
-  resources :sessions
-  resources :users
-  resources :staffs
-  resources :departments
+  resources :sessions, :users, :staffs, :departments, :loans, :sabbaticals, :attendances
   get 'dashboard/user' => 'dashboard#user', as: :dashboard_user
   get 'dashboard/company' => 'dashboard#company', as: :dashboard_company
   get 'dashboard/preferences' => 'dashboard#preferences', as: :dashboard_setting

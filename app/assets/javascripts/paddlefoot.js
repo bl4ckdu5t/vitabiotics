@@ -12,4 +12,30 @@ $(document).ready(function(){
 		var accordId = $(this).data('accord');
 		$(this).siblings('ul#'+accordId).toggle();
 	});
+	// Fading out notifications
+	$(".notifier").filter(":visible").delay(3000).fadeOut('slow');
+	// Hiding and displaying edit entries for departments,
+	$('.content>.fr span:first-of-type').click(function(){
+		$(this).parents('.fr').siblings('aside').slideToggle();
+	});
+	// Delete confirmation with sweet alert
+	$('.content>.fr span:last-of-type').click(function(){
+		swal({
+			title: "Are you sure?",
+			text: "You will not be able to undo this!",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Yes, delete it!",
+			closeOnConfirm: false 
+		}, function(){
+			swal("Deleted!", "Department has been deleted.", "success"); 
+		});
+	});
+	// Department list pagination
+	var deptList = new List('department-list', {
+		valueNames: ['deptname'],
+		page: 8,
+		plugins: [ ListPagination({}) ]
+	});
 });

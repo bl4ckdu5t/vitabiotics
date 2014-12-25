@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(version: 20141205171114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendance", force: true do |t|
+  create_table "attendances", force: true do |t|
     t.integer  "staff_id"
-    t.datetime "absence_date"
-    t.integer  "streak"
+    t.boolean  "presence"
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -114,7 +116,7 @@ ActiveRecord::Schema.define(version: 20141205171114) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "usertype"
+    t.string   "role"
     t.string   "email"
     t.string   "avatar"
     t.string   "password_hash"

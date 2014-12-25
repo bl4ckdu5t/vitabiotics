@@ -147,6 +147,7 @@ header {
 .board {
   float: right;
   width: 85%;
+  padding-bottom: 20px;
   header {
     ul {
       position: absolute;
@@ -301,26 +302,6 @@ header {
     box-shadow: 1px 0 2px #aaaaaa inset;
     padding: 2px 5px;
   }
-}
-
-.pink {
-  background: $color-red-vitabiotics;
-}
-
-.blue {
-  background: $background-cool-blue;
-}
-
-.orange {
-  background: $color-pure-orange;
-}
-
-.purple {
-  background: #aa55cc;
-}
-
-.iron {
-  background: $iron;
 }
 
 .showbox {
@@ -595,12 +576,46 @@ h2.inline-block {
 }
 /* End of Login Form */
 .content p{
+  &.notifier{
+    background: rgba(lighten($color-red-vitabiotics,10),.2);
+    border: solid thin $color-red-vitabiotics;
+    padding: 10px;
+    border-radius: 5px;
+    color: $color-red-vitabiotics;
+    &:empty{ display: none; }
+  }
+}
+.content{
   input[type="text"],input[type="email"],input[type="password"],select,textarea{
     width: 100%;
     height: 40px;
     font-size: 1.3em;
     padding: 0 5px;
     background: $white;
+    border: solid thin #aaa;
+  }
+  .fr{
+    span{
+      margin: 0 8px;
+      cursor: pointer;
+      &:first-of-type{
+        color: $myblue;
+      }
+      &:last-of-type{
+        color: $red;
+      }
+    }
+  }
+  aside{
+    background: #eee;
+    border: solid thin #aaa;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: none;
+    input:first-of-type{
+      margin-bottom: 10px;
+    }
   }
 }
 .btn-std{
@@ -614,5 +629,27 @@ h2.inline-block {
   @include three-d(#aaaaaa);
   &:hover{
     background: darken($color-red-vitabiotics, 7);
+  }
+}
+.btn-edit{
+  margin-top: 15px;
+  @extend .btn-std;
+  background: #666;
+  &:hover{ background: #555; }
+}
+ul.pagination{
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  li{
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 3px 2px #aaa;
+    background: $white;
+    &.active{
+      background: #ddd;
+      a{ cursor: default; }
+    }
   }
 }

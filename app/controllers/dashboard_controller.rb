@@ -15,6 +15,9 @@ class DashboardController < ApplicationController
 
   end
   def company
+    @department = Department.new
+    @allDepartments = Department.all
+    #render text: 'foo' and return
   end
 
   private
@@ -25,7 +28,6 @@ class DashboardController < ApplicationController
     end
   end
   def init
-    @current_user = session[:user_id]
     @departments = Department.where(parent: '')
   end
 end
