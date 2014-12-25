@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'dashboard/user' => 'dashboard#user', as: :dashboard_user
   get 'dashboard/company' => 'dashboard#company', as: :dashboard_company
   get 'dashboard/preferences' => 'dashboard#preferences', as: :dashboard_setting
-  get 'dashboard/office' => 'dashboard#office', as: :dashboard_office
+  get 'dashboard/attendance-records' => 'dashboard#attendance', as: :dashboard_attendance
   get 'dashboard' => 'dashboard#index', as: :dashboard
   get 'login' => 'welcome#login'
 

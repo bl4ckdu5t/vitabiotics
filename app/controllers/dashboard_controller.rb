@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
       instance_variable_set("@#{department.name}Children".gsub(' ','_'), childfetch.map { |child| "#{child.name}" }.join(',') )
     end
   end
-  def office
+  def attendance
 
   end
   def preferences
