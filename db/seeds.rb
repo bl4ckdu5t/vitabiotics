@@ -10,6 +10,7 @@ User.create!(
 	name: 'Joseph Rex',
 	role: 'administrator',
 	email: 'admin@vitabiotics.com',
+	avatar: '',
 	password: 'password'
 )
 

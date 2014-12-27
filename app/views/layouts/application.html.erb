@@ -16,16 +16,16 @@
 <!-- Sidebar -->
 <section class="sidebar">
 	<header title="Vitabiotics"><a href="../">Vitabiotics</a></header>
-	<% if current_user.avatar == '' %>
+	<% if current_user.avatar == '' || current_user.avatar == nil %>
 	<%= image_tag('vader.jpg') %>
 	<% else %>
 	<img src="/uploads/<%= current_user.avatar %>" alt="<%= current_user.name %>">
 	<% end %>
-	<h3 title="<%= current_user.name.split(' ')[0] %>">
-		<%= current_user.name == '' || current_user.name == ' ' ? 'No' : current_user.name.split(' ')[0] %>
+	<h3 title="<%= current_user.name == nil ? '' : current_user.name.split(' ')[0] %>">
+		<%= current_user.name == '' || current_user.name == ' ' || current_user.name == nil ? 'No' : current_user.name.split(' ')[0] %>
 	</h3>
-	<h4 title="<%= current_user.name.split(' ')[1] %>">
-		<%= current_user.name == '' || current_user.name == ' ' ? 'Name' : current_user.name.split(' ')[1] %>
+	<h4 title="<%= current_user.name == nil ? '' : current_user.name.split(' ')[1] %>">
+		<%= current_user.name == '' || current_user.name == ' ' || current_user.name == nil ? 'Name' : current_user.name.split(' ')[1] %>
 	</h4>
 	<ul>
 		<li class="<%= request.path == '/dashboard' ? 'active':'' %>">

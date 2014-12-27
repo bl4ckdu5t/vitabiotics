@@ -6,11 +6,11 @@
 			<%= form_for @user_update do |f| %>
 			<p>
 				<%= f.label :firstname %>
-				<%= f.text_field :firstname, value: "#{current_user.name.split(' ')[0]}" %>
+				<%= f.text_field :firstname, value: "#{current_user.name == nil ? '' : current_user.name.split(' ')[0]}" %>
 			</p>
 			<p>
 				<%= f.label :lastname %>
-				<%= f.text_field :lastname, value: "#{current_user.name.split(' ')[1]}" %>
+				<%= f.text_field :lastname, value: "#{current_user.name == nil ? '' : current_user.name.split(' ')[1]}" %>
 			</p>
 			<p>
 				<%= f.label :email %>
