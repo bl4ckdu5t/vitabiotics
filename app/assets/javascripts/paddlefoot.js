@@ -18,24 +18,17 @@ $(document).ready(function(){
 	$('.content>.fr span:first-of-type').click(function(){
 		$(this).parents('.fr').siblings('aside').slideToggle();
 	});
-	// Delete confirmation with sweet alert
-	$('.content>.fr span:last-of-type').click(function(){
-		swal({
-			title: "Are you sure?",
-			text: "You will not be able to undo this!",
-			type: "warning",
-			showCancelButton: true,
-			confirmButtonColor: "#DD6B55",
-			confirmButtonText: "Yes, delete it!",
-			closeOnConfirm: false 
-		}, function(){
-			swal("Deleted!", "Department has been deleted.", "success"); 
-		});
-	});
 	// Department list pagination
 	var deptList = new List('department-list', {
 		valueNames: ['deptname'],
 		page: 8,
 		plugins: [ ListPagination({}) ]
+	});
+	// Adding a old password field on profile edit
+	$('.delicate').keyup(function(){
+		$('.former').fadeIn(function(){
+			$(this).html('<label for="user_current">Current Password</label>'+
+			'<input id="user_current" name="user[current]" required="true" type="password">');
+		});
 	});
 });

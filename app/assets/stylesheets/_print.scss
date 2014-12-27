@@ -38,4 +38,27 @@
     	widows: 3;
 	}
 	h2, h3{ page-break-after: avoid; }
+	/* Newly added */
+	.sidebar.sidebar.sidebar,header{
+		display: none;
+	}
+	.board{
+		float: none;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.staffImage{
+		border-radius: 0;
+		position: absolute;
+		left: 20px;
+		top: 0;
+		width: 100px;
+		height: 100px;
+	}
+	.staffData{
+		margin-top: 80px + 10px //image padding + image height + distance
+	}
+	.topbar svg{
+		display: none;
+	}
 }

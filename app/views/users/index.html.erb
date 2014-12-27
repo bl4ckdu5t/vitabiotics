@@ -1,0 +1,30 @@
+<section class="row-doubles">
+	<h2 class="inline-block">User Accounts</h2>
+	<table class="listings">
+		<thead>
+			<tr>
+				<th><input class="checkbox" type="checkbox"></th>
+				<th>Email</th>
+				<th>Name</th>
+				<th>Role</th>
+				<th>Created</th>
+				<th>Last updated</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.all.map do |user| %>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>
+					<strong><%= user.email %></strong>
+					<span>Edit</span><span>View</span><span>Delete</span>
+				</td>
+				<td><%= user.name %></td>
+				<td><%= user.role %></td>
+				<td><%= user.created_at %></td>
+				<td><%= user.updated_at %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>

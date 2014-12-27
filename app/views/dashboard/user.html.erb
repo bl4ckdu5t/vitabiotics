@@ -1,50 +1,63 @@
 <section class="row-doubles">
-	<h2 class="inline-block">User Settings</h2>
-	<a href="adduser.html" title="Add New">
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 32 32">
-	<g id="icomoon-ignore"></g>
-	<path d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
-	</svg>
-	</a>
-	<form method="post" action="">
-		<div class="form-row">
-			<div><label for="fname">Firstname</label></div>
-			<div><input type="text" name="fname" placeholder="e.g Johnny"></div>
+	<div>
+		<div class="title">Edit Account</div>
+		<div class="content pad10">
+			<%= content_tag :p, flash.alert, class: 'notifier' %>
+			<%= form_for @user_update do |f| %>
+			<p>
+				<%= f.label :firstname %>
+				<%= f.text_field :firstname, value: "#{current_user.name.split(' ')[0]}" %>
+			</p>
+			<p>
+				<%= f.label :lastname %>
+				<%= f.text_field :lastname, value: "#{current_user.name.split(' ')[1]}" %>
+			</p>
+			<p>
+				<%= f.label :email %>
+				<%= email_field :user, :email, value: "#{current_user.email}", class: 'delicate', 'data-current' => "#{current_user.email}" %>
+			</p>
+			<p>
+				<%= f.label :avatar %><br>
+				<%= f.file_field :avatar %>
+			</p>
+			<p>
+				<%= f.label :password, 'New Password (Leave blank to keep old password)' %>
+				<%= f.password_field :password, class: 'delicate' %>
+			</p>
+			<p class="former ghost"></p>
+			<%= f.submit 'Update Account', class: 'btn-std' %>
+			<% end %>
 		</div>
-		<div class="form-row">
-			<div><label for="lname">Lastname</label></div>
-			<div><input type="text" name="lname" placeholder="e.g Springsberg"></div>
+	</div>
+	<div>
+		<div class="title">Add New User</div>
+		<div class="content pad10">
+			<%= content_tag :p, flash.notice, class: 'notifier' %>
+			<%= form_for @user do |f| %>
+			<p>
+				<%= f.label :email %>
+				<%= email_field :user, :email %>
+			</p>
+			<p>
+				<%= f.label :role %>
+				<%= f.select :role, options_for_select([['Administrator','administrator'],['Manager','manager']]) %>
+			</p>
+			<p>
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</p>
+			<%= f.submit 'Add User', class: 'btn-std' %>
+			<% end %>
 		</div>
-		<div class="form-row">
-			<div><label for="username">Username</label></div>
-			<div><input type="text" name="username" placeholder="e.g jsprings"></div>
+
+		<div class="topmag10">
+			<div class="content background-deep-orange color-white pad10 clearfix">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="32" viewBox="0 0 36 32" class="fl">
+				<path d="M24 24.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z" fill="#FFFFFF"></path>
+				<path d="M10.225 24.854c1.728-1.13 3.877-1.989 6.243-2.513-0.47-0.556-0.897-1.176-1.265-1.844-0.95-1.726-1.453-3.627-1.453-5.497 0-2.689 0-5.228 0.956-7.305 0.928-2.016 2.598-3.265 4.976-3.734-0.529-2.39-1.936-3.961-5.682-3.961-6 0-6 4.029-6 9 0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h8.719c0.454-0.403 0.956-0.787 1.506-1.146z" fill="#EEEEEE"></path>
+				</svg>
+				<strong class="pad10 block fl"><%= link_to 'View and manage all existing users', users_path %></strong>
+			</div>
 		</div>
-		<div class="form-row">
-			<div><label for="email">Email</label></div>
-			<div><input type="email" name="email" placeholder="e.g johnny@paddlefoot.com"></div>
-		</div>
-		<div class="form-row">
-			<div><label for="image">Upload image</label></div>
-			<div><input type="file" name="image"></div>
-		</div>
-		<div class="form-row">
-			<div><button class="btn">Save settings</button></div>
-			<div>&nbsp;</div>
-		</div>
-	</form>
-	<h3>Change Password</h3>
-	<form action="" method="post">
-		<div class="form-row">
-			<div><label for="oldpass">Old Password</label></div>
-			<div><input type="password" name="oldpass"></div>
-		</div>
-		<div class="form-row">
-			<div><label for="newpass">New Password</label></div>
-			<div><input type="password" name="newpass"></div>
-		</div>
-		<div class="form-row">
-			<div><button class="btn">Update Password</button></div>
-			<div>&nbsp;</div>
-		</div>
-	</form>
+	</div>
 </section>

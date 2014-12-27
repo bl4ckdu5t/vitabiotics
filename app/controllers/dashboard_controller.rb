@@ -16,8 +16,14 @@ class DashboardController < ApplicationController
   end
   def company
     @department = Department.new
-    @allDepartments = Department.all
-    #render text: 'foo' and return
+    @allDepartments = Department.all.order('created_at ASC')
+    @allDepartments.all.map do |dept|
+      instance_variable_set("@dept#{dept.id}", Department.find(dept.id))
+    end
+  end
+  def user
+    @user = User.new
+    @user_update = User.find(current_user.id)
   end
 
   private
@@ -28,6 +34,6 @@ class DashboardController < ApplicationController
     end
   end
   def init
-    @departments = Department.where(parent: '')
+    @departments = Department.where(parent: '').order('created_at ASC')
   end
 end

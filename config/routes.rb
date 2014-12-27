@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'dashboard/preferences' => 'dashboard#preferences', as: :dashboard_setting
   get 'dashboard/attendance-records' => 'dashboard#attendance', as: :dashboard_attendance
   get 'dashboard' => 'dashboard#index', as: :dashboard
-  get 'login' => 'welcome#login'
+  get 'login' => 'sessions#new'
 
   root 'sessions#new'
 end

@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   layout global:
   def new
+    if current_user.present?
+      redirect_to dashboard_path
+    end
   end
 
   def create
