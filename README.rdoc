@@ -8,20 +8,13 @@ The Vitabiotics web application is built with ruby-on-rails web application fram
 
 * Gem 2.4.2
 
-== Other thinks to talk about
-* Configuration
+Default configurations are already seeded. A simple execution of 
+```
+bin/rake db:seed
 
-* Database creation
+```
+will put all necessary data into the application database and make it ready for use
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
