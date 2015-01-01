@@ -8,14 +8,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
 	<link rel="author" href="http://ostrich-dev.com">
 	<link rel="shortcut icon" href="<%= "#{root_url}favicon.ico" %>">
-	<title>Vitabiotics</title>
+	<title><%= @preferences.company %></title>
 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
 <!-- Sidebar -->
 <section class="sidebar">
-	<header title="Vitabiotics"><a href="../">Vitabiotics</a></header>
+	<header title="<%= @preferences.company %>"><%= link_to @preferences.company.capitalize, root_url %></header>
 	<% if current_user.avatar == '' || current_user.avatar == nil %>
 	<%= image_tag('vader.jpg') %>
 	<% else %>
@@ -37,8 +37,8 @@
 				Dashboard
 			<% end %>
 		</li>
-		<li class="<%= request.path == '/dashboard/attendance-records' ? 'active':'' %>">
-			<%= link_to dashboard_attendance_path do %>
+		<li class="<%= request.path == '/dashboard/records' ? 'active':'' %>">
+			<%= link_to dashboard_records_path do %>
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="20" viewBox="0 0 36 32">
 				<path d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
 				<path d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
@@ -48,6 +48,7 @@
 				Records
 			<% end %>
 		</li>
+		<% if current_user.role == 'administrator' %>
 		<li class="<%= request.path == '/dashboard/company' ? 'active':'' %>">
 			<%= link_to dashboard_company_path do %>
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32">
@@ -57,6 +58,7 @@
 				Company Settings
 			<% end %>
 		</li>
+		<% end %>
 		<li class="<%= request.path == '/dashboard/user' ? 'active':'' %>">
 			<%= link_to dashboard_user_path do %>
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32">
@@ -66,6 +68,7 @@
 				User Settings
 			<% end %>
 		</li>
+		<% if current_user.role == 'administrator' %>
 		<li class="<%= request.path == '/dashboard/preferences' ? 'active':'' %>">
 			<%= link_to dashboard_setting_path do %>
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32">
@@ -75,6 +78,7 @@
 				Preferences
 			<% end %>
 		</li>
+		<% end %>
 	</ul>
 </section>
 <!-- End of Sidebar -->
@@ -83,7 +87,7 @@
 		<form action=""><input type="text" name="search" placeholder="search..."></form>
 		<ul>
 			<li title="Settings">
-				<%= link_to dashboard_setting_path do %>
+				<%= link_to current_user.role == 'administrator' ? dashboard_setting_path : dashboard_user_path do %>
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32">
 					<g id="icomoon-ignore"></g>
 					<path d="M14 4v-0.5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v0.5h-6v4h6v0.5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-0.5h18v-4h-18zM8 8v-4h4v4h-4zM26 13.5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v0.5h-18v4h18v0.5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-0.5h6v-4h-6v-0.5zM20 18v-4h4v4h-4zM14 23.5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v0.5h-6v4h6v0.5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-0.5h18v-4h-18v-0.5zM8 28v-4h4v4h-4z"></path>

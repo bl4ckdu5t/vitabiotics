@@ -1,9 +1,7 @@
 $(document).ready(function(){
 	// Background Color preference preview
-	$('[name="theme"]').click(function(){
-		var color = $(this).prop('id');
-		var rgb = color === 'pink'?'221, 17, 66':color==='purple'?'170, 85, 204':color==='blue'? '27, 186, 225':color==='orange'?
-		'238, 102, 17':color==='iron'?'218, 219, 223':'0, 0, 0';
+	$('.themes').click(function(){
+		var rgb = $(this).val();
 		$('header').css('background','rgba('+ rgb +',.9)');
 		$('.board header a:hover').css('background', 'rgb('+rgb+')');
 	});
@@ -30,5 +28,20 @@ $(document).ready(function(){
 			$(this).html('<label for="user_current">Current Password</label>'+
 			'<input id="user_current" name="user[current]" required="true" type="password">');
 		});
+	});
+	// User list pagination
+	var userList = new List('user-list',{
+		valueNames: ['user-data'],
+		page: 4,
+		plugins: [ ListPagination({}) ]
+	});
+	// Show input edit fields for users table listings
+	$('.list>.user-data td span:first-of-type').click(function(){
+		$(this).parents('tr').find('p').fadeToggle();
+	});
+	$('[type="date"]').pickadate();
+	// Show Edit options for users
+	$('.user-setting>span:first-child').click(function(){
+		$(this).parents('.user-setting').siblings('.ghost').slideToggle();
 	});
 });

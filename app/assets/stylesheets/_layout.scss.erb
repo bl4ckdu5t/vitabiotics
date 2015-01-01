@@ -94,9 +94,8 @@ body {
     }
   }
 }
-
 header {
-  background: rgba($color-red-vitabiotics, 0.9);
+  background: rgba($color-vitabiotics, 0.9);
   color: $white;
   height: 60px;
   position: relative;
@@ -179,7 +178,7 @@ header {
           display: block;
           padding: 17px;
           &:hover {
-            background: rgb(209, 17, 63);
+            background: darken($color-vitabiotics, .8);
           }
         }
         svg {
@@ -220,7 +219,7 @@ header {
     }
   }
   .title {
-    background: $color-red-vitabiotics;
+    background: $color-vitabiotics;
     color: $white;
     height: 50px;
     padding: 15px 10px;
@@ -259,10 +258,15 @@ header {
 .row-one {
   >div {
     @include span(48%);
-    height: 150px;
     padding: 10px;
     background: $white;
     border: solid 1px #dddddd;
+    &:nth-of-type(even){
+      border-top: solid 3px $light-green;
+    }
+    &:nth-of-type(odd){
+      border-top: solid 3px $color-wine-fade;
+    }
   }
 }
 
@@ -276,7 +280,7 @@ header {
     padding-right: 20px;
     background: $white;
     border: solid 1px #dddddd;
-    >svg {
+    >svg,>.thumbnail {
       background: #dddddd;
       width: 50px;
       height: 50px;
@@ -307,7 +311,7 @@ header {
       font-weight: 700;
     }
   }
-  input[type="image-url"],input[type="text"],input[type="email"],input[type="password"] {
+  input[type="url"],input[type="text"],input[type="email"],input[type="password"] {
     height: 30px;
     width: 400px;
     border: solid 1px #dddddd;
@@ -387,12 +391,21 @@ h2.inline-block {
   }
   th, td {
     padding: 8px 5px;
+    position: relative;
     strong {
       display: block;
+    }
+    p{ height: 10px; display: none; }
+    input[type="text"],input[type="email"],select,[type="submit"]{
+      position: absolute;
+      bottom: 10px;
+      width: 94%;
+      height: 30px;
     }
     span {
       font-size: 12px;
       padding: 0 10px;
+      cursor: pointer;
       &:first-of-type {
         padding-left: 0 !important;
         color: $color-pure-orange;
@@ -418,11 +431,10 @@ h2.inline-block {
     }
   }
 }
-
 .header-display {
   display: block;
   margin-bottom: 10px;
-  background: image-url("abstract.jpg");
+  background-position: center;
   background-size: cover;
   width: 80%;
   border: solid 4px #cccccc;
@@ -451,6 +463,7 @@ h2.inline-block {
     height: 40px;
     border-bottom: solid thin #bbbbbb;
     padding: 6px 10px;
+    position: relative;
     svg {
       float: right;
     }
@@ -460,7 +473,7 @@ h2.inline-block {
     >em {
       display: block;
       margin-bottom: 10px;
-      color: $color-red-vitabiotics;
+      color: $color-vitabiotics;
     }
     p:not(.formline) {
       margin: 0;
@@ -587,15 +600,13 @@ h2.inline-block {
   }
 }
 /* End of Login Form */
-.content p{
-  &.notifier{
-    background: rgba(lighten($color-red-vitabiotics,10),.2);
-    border: solid thin $color-red-vitabiotics;
-    padding: 10px;
-    border-radius: 5px;
-    color: $color-red-vitabiotics;
-    &:empty{ display: none; }
-  }
+.notifier{
+  background: rgba(lighten($color-vitabiotics,10),.2);
+  border: solid thin $color-vitabiotics;
+  padding: 10px;
+  border-radius: 5px;
+  color: $color-vitabiotics;
+  &:empty{ display: none; }
 }
 .content{
   input[type="text"],input[type="email"],input[type="password"],select,textarea{
@@ -636,11 +647,11 @@ h2.inline-block {
   padding: 10px 20px;
   font-size: 1em;
   cursor: pointer;
-  background: $color-red-vitabiotics;
+  background: $color-vitabiotics;
   color: $white;
   @include three-d(#aaaaaa);
   &:hover{
-    background: darken($color-red-vitabiotics, 7);
+    background: darken($color-vitabiotics, 7);
   }
 }
 .btn-edit{
@@ -663,5 +674,17 @@ ul.pagination{
       background: #ddd;
       a{ cursor: default; }
     }
+  }
+}
+.thumbnail.thumbnail.thumbnail{
+  width: 60px;
+  height: 60px;
+}
+.topbar>.fl{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  span{
+    margin-left: 10px;
   }
 }

@@ -8,18 +8,18 @@ class DashboardController < ApplicationController
       instance_variable_set("@#{department.name}Children".gsub(' ','_'), childfetch.map { |child| "#{child.name}" }.join(',') )
     end
   end
-  def attendance
+  def records
 
   end
   def preferences
-
+    @preference = Preference.find(1)
+    # Colors in RGB
+    @colors = ['221, 17, 66','170, 85, 204','32, 144, 172','238, 102, 17','192, 195, 204']
   end
   def company
     @department = Department.new
     @allDepartments = Department.all.order('created_at ASC')
-    @allDepartments.all.map do |dept|
-      instance_variable_set("@dept#{dept.id}", Department.find(dept.id))
-    end
+    @department_array = @departments.all.map { |dept| [dept.name, dept.name] }
   end
   def user
     @user = User.new
@@ -35,5 +35,6 @@ class DashboardController < ApplicationController
   end
   def init
     @departments = Department.where(parent: '').order('created_at ASC')
+    @preferences = Preference.find(1)
   end
 end

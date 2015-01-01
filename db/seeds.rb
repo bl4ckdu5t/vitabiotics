@@ -14,6 +14,11 @@ User.create!(
 	password: 'password'
 )
 
+Preference.create!(
+	company: 'vitabiotics',
+	website: 'http://vitabiotics.herokuapp.com',
+	theme: '221, 17, 66'
+)
 departments = [
 	['Managing Director',''],
 	['Management',''],

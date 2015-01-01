@@ -10,8 +10,7 @@
 			</p>
 			<p>
 				<%= f.label :parent %>
-				<% department_array = @departments.all.map { |department| [department.name, department.name] } %>
-				<%= f.select :parent, options_for_select([['no parent', '']] + department_array) %>
+				<%= f.select :parent, options_for_select([['no parent', '']] + @department_array) %>
 			</p>
 			<%= f.submit 'Add Department', class: 'btn-std' %>
 			<% end %>
@@ -41,6 +40,14 @@
 				<strong class="pad10 block fl"><%= link_to 'Add Sabbatical', new_sabbatical_path %></strong>
 			</div>
 		</div>
+		<div class="topmag10">
+			<div class="content background-pure-orange color-white pad10 clearfix">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" class="fl">
+				<path d="M32 10l-16-8-16 8 16 8 16-8zM16 4.655l10.689 5.345-10.689 5.345-10.689-5.345 10.689-5.345zM28.795 14.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398zM28.795 20.398l3.205 1.602-16 8-16-8 3.205-1.602 12.795 6.398z" fill="#FFFFFF"></path>
+				</svg>
+				<strong class="pad10 block fl"><%= link_to 'Add Attendance', new_sabbatical_path %></strong>
+			</div>
+		</div>
 	</div>
 	<div>
 		<div class="title">Departments</div>
@@ -52,15 +59,14 @@
 						<%= "#{department.name}" %>
 						<div class="fr">
 							<span>Edit</span>
-							<span><%= link_to "Delete", department_update("#{department.id}"), method: 'delete', 'data-confirm' => "Are you sure?" %></span>
+							<span><%= link_to "Delete", department, method: 'delete', 'data-confirm' => "Are you sure?" %></span>
 						</div>
 						<aside>
-							<%= form_for department_update("#{department.id}"), remote: true do |f| %>
+							<%= form_for department, remote: true do |f| %>
 							<%= f.label 'Department Name' %>
 							<%= f.text_field :name, value: "#{department.name}" %>
 							<%= f.label :Parent %>
-							<% department_array = @departments.all.map { |dept| [dept.name, dept.name] } %>
-							<%= f.select :parent, options_for_select([['no parent', '']] + department_array, "#{department.parent}") %>
+							<%= f.select :parent, options_for_select([['no parent', '']] + @department_array, "#{department.parent}") %>
 							<%= f.hidden_field :id, value: "#{department.id}" %>
 							<%= f.submit :update, class: 'btn-edit' %>
 							<% end %>

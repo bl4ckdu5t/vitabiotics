@@ -7,7 +7,7 @@ one:
   guarantor_name: MyString
   guarantor_dept: MyString
   loan_purpose: MyString
-  loan_approved: 1
+  loan_approved: true
   monthly_deduction: MyString
 
 two:
@@ -17,5 +17,5 @@ two:
   guarantor_name: MyString
   guarantor_dept: MyString
   loan_purpose: MyString
-  loan_approved: 1
+  loan_approved: true
   monthly_deduction: MyString

@@ -58,7 +58,9 @@
 	.staffData{
 		margin-top: 80px + 10px //image padding + image height + distance
 	}
-	.topbar svg{
-		display: none;
+	.topbar{
+		svg,.fl{
+			display: none;
+		}
 	}
 }

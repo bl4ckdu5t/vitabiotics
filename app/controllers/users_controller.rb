@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :init
+  before_action :require_login
+
   def index
-    @users = User.all.order('created_at DESC')
+    @users = User.all.where.not(email: current_user.email).order('created_at DESC')
   end
   
   def create
@@ -33,16 +36,29 @@ class UsersController < ApplicationController
       if @user.save
         redirect_to :back, alert: "Account Updated"
       else
-        redirect_to :back, alert: "Account Update Failed"
+        redirect_to :back, alert: @user.errors.full_messages
       end
     end
   end
 
   def destroy
+    user = User.find(params[:id])
+    if user.destroy
+      redirect_to :back
+    end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:email, :role, :password, :avatar, :firstname, :lastname, :current)
+  end
+  def init
+    @preferences = Preference.find(1)
+  end
+  def require_login
+    unless session[:user_id].present?
+      redirect_to root_url
+    end
   end
 end

@@ -1,6 +1,4 @@
 class DepartmentsController < ApplicationController
-  def index
-  end
   def create
   	@department = Department.new(department_params)
   	if @department.save

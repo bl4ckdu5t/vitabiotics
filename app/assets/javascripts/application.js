@@ -16,4 +16,6 @@
 //= require sweetalert/lib/sweet-alert
 //= require list.pagination.js/dist/list
 //= require list.pagination.js/dist/list.pagination
+//= require pickadate/lib/picker
+//= require pickadate/lib/picker.date
 //= require_tree .

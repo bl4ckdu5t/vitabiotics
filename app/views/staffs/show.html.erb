@@ -1,6 +1,16 @@
-<%= image_tag '5.jpg',alt: 'profile',class: 'staffImage' %>
+<% if @staff.avatar.eql? nil %>
+<%= image_tag 'vader.jpg',alt: 'profile',class: 'staffImage' %>
+<% else %>
+<img src="/uploads/<%= @staff.avatar %>" class="staffImage" alt="profile">
+<% end %>
 <section class="staffData">
 	<div class="topbar">
+		<% if current_user.role.eql? 'administrator' %>
+		<div class="fl">
+			<span><%= link_to 'Edit', edit_staff_path %></span>
+			<span><%= link_to 'Delete', @staff, method: 'delete', 'data-confirm' => 'Are you sure?' %></span>
+		</div>
+		<% end %>
 		<a href="javascript:print()">
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 32 32">
 			<g id="icomoon-ignore"></g>
@@ -9,31 +19,32 @@
 		</a>
 	</div>
 	<div class="entry">
-		<em>staff since 24th March, 2005</em>
-		<p><strong>Title:</strong><span>Mr</span></p>
-		<p><strong>Surname:</strong><span>Williams</span></p>
-		<p><strong>Other names:</strong><span>Curtis K.</span></p>
-		<p><strong>Mother's maiden name:</strong><span>Taenarys</span></p>
-		<p><strong>Gender:</strong><span>Curtis K.</span></p>
-		<p><strong>Date of birth:</strong><span>24-08-1942</span></p>
-		<p><strong>marital status:</strong><span>Married</span></p>
-		<p><strong>Spouse name:</strong><span>Sydney</span></p>
-		<p><strong>Name of first child:</strong><span>Jason</span></p>
-		<p><strong>Phone:</strong><span>+234907896543</span></p>
-		<p><strong>Email:</strong><span>curtis@vitabiotics.com</span></p>
-		<p><strong>Department:</strong><span>Marketing</span></p>
-		<p><strong>Designation:</strong><span>Senior staff</span></p>
-		<p><strong>Previous employer:</strong><span>Microsoft Inc</span></p>
-		<p><strong>Post held:</strong><span>Marketing Manager</span></p>
-		<p><strong>Years of duty:</strong><span>1999 - 2005</span></p>
-		<p><strong>State of origin:</strong><span>Lagos</span></p>
-		<p><strong>Nationality:</strong><span>Arabian</span></p>
-		<p><strong>Town:</strong><span>Smallville</span></p>
-		<p><strong>Local government area:</strong><span>Obalende</span></p>
-		<p><strong>Family house address:</strong><span>A strange house in disney</span></p>
-		<p><strong>Permanent Home address:</strong><span>A strange house in disney</span></p>
-		<p><strong>Residential address:</strong><span>A strange house in disney</span></p>
-		<p><strong>Next of kin:</strong><span>Alan Williams</span></p>
-		<p><strong>Address of Next of kin:</strong><span>235, Broad street, Obalende</span></p>
+		<em>staff since <%= @staff.staff_from %></em>
+		<p><strong>Title:</strong><span><%= @staff.title.capitalize %></span></p>
+		<p><strong>Surname:</strong><span><%= @staff.surname.capitalize %></span></p>
+		<p><strong>Other names:</strong><span><%= @staff.othernames %></span></p>
+		<p><strong>Mother's maiden name:</strong><span><%= @staff.maiden_name %></span></p>
+		<p><strong>Gender:</strong><span><%= @staff.gender %></span></p>
+		<p><strong>Date of birth:</strong><span><%= @staff.date_of_birth %></span></p>
+		<p><strong>marital status:</strong><span><%= @staff.marital_status %></span></p>
+		<p><strong>Spouse name:</strong><span><%= @staff.spouse %></span></p>
+		<p><strong>Name of first child:</strong><span><%= @staff.first_child %></span></p>
+		<p><strong>Phone:</strong><span><%= @staff.phone %></span></p>
+		<p><strong>Email:</strong><span><%= @staff.email %></span></p>
+		<p><strong>Department:</strong><span><%= @staff.department.capitalize %></span></p>
+		<p><strong>Designation:</strong><span><%= @staff.designation.capitalize %></span></p>
+		<p><strong>Previous employer:</strong><span><%= @staff.prev_employer %></span></p>
+		<p><strong>Post held:</strong><span><%= @staff.post_held %></span></p>
+		<p><strong>Years of duty:</strong><span><%= @staff.duty_years %></span></p>
+		<p><strong>State of origin:</strong><span><%= @staff.state %></span></p>
+		<p><strong>Nationality:</strong><span><%= @staff.nationality %></span></p>
+		<p><strong>City:</strong><span><%= @staff.city %></span></p>
+		<p><strong>Local government area:</strong><span><%= @staff.town %></span></p>
+		<p><strong>Family house address:</strong><span><%= @staff.family_address %></span></p>
+		<p><strong>Permanent Home address:</strong><span><%= @staff.permanent_address %></span></p>
+		<p><strong>Residential address:</strong><span><%= @staff.residence %></span></p>
+		<p><strong>Next of kin:</strong><span><%= @staff.kin %></span></p>
+		<p><strong>Phone of Next of Kin:</strong><span><%= @staff.kin_phone %></span></p>
+		<p><strong>Address of Next of kin:</strong><span><%= @staff.kin_address %></span></p>
 	</div>
 </section>
