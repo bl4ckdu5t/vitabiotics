@@ -18,4 +18,5 @@
 //= require list.pagination.js/dist/list.pagination
 //= require pickadate/lib/picker
 //= require pickadate/lib/picker.date
+//= require select2/select2
 //= require_tree .

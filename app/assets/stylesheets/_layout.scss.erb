@@ -487,12 +487,26 @@ h2.inline-block {
     }
   }
 }
-
+$input-1-position: 200px;
+$input-2-position: 300px;
+$radio-space: 25px;
 .formline {
   position: relative;
-  input,select {
+  input:first-of-type,select,textarea, .select2-container {
     position: absolute;
-    left: 200px;
+    left: $input-1-position;
+  }
+  input[type="radio"]:last-of-type{
+    position: absolute;
+    left: $input-2-position;
+  }
+  .opt1,.opt2{
+    position: absolute;
+  }
+  .opt1{ left: $input-1-position + $radio-space; }
+  .opt2{ left: $input-2-position + $radio-space; }
+  .select2-container{
+    min-width: 180px;
   }
 }
 
@@ -609,7 +623,7 @@ h2.inline-block {
   &:empty{ display: none; }
 }
 .content{
-  input[type="text"],input[type="email"],input[type="password"],select,textarea{
+  input[type="text"],input[type="email"],input[type="password"],select,textarea,{
     width: 100%;
     height: 40px;
     font-size: 1.3em;
@@ -617,6 +631,8 @@ h2.inline-block {
     background: $white;
     border: solid thin #aaa;
   }
+  .select2-container{ width: 100%; font-size: 1.5em; }
+  .select2-choice{ height: 40px; padding: 5px; }
   .fr{
     span{
       margin: 0 8px;

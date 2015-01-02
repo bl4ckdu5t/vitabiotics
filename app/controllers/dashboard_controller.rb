@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
     end
   end
   def records
-
+    @loans = Loan.take(5)
   end
   def preferences
     @preference = Preference.find(1)

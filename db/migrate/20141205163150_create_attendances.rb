@@ -1,4 +1,4 @@
-class Attendances < ActiveRecord::Migration
+class CreateAttendances < ActiveRecord::Migration
   def change
   	create_table :attendances do |t|
   		t.integer :staff_id

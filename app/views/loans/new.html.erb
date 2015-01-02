@@ -1,0 +1,28 @@
+<div class="middle-block" style="width:80%"><%= content_tag :p, notice, class: 'notifier' %></div>
+<section class="staffData">
+	<div class="topbar">
+		Add a Loan record
+	</div>
+	<div class="entry">
+		<%= form_for @loan do |f| %>
+			<p class="formline">
+				<%= f.label :staff_id, 'Staff' %>
+				<%= f.select :staff_id, options_for_select(@staffs) %>
+			</p>
+			<p class="formline clearfix"><%= f.label :registration_no, 'Registration no' %><%= f.text_field :registration_no %></p>
+			<p class="formline clearfix"><%= f.label :guarantor_name, 'Guarantor Name' %><%= f.text_field :guarantor_name %></p>
+			<p class="formline clearfix"><%= f.label :guarantor_dept, 'Guarantor Department' %><%= f.text_field :guarantor_dept %></p>
+			<p class="formline clearfix"><%= f.label :confirm_date, 'Date of Confirmation' %><%= f.date_field :confirm_date %></p>
+			<p class="formline"><%= f.label :monthly_deduction %><%= f.text_field :monthly_deduction %></p>
+			<p class="formline">
+				<%= f.label :loan_approved, 'Loan approval' %>
+				<%= f.radio_button :loan_approved, 'true' %> <span class="opt1">approved</span>
+				<%= f.radio_button :loan_approved, 'false' %> <span class="opt2">unapproved</span>
+			</p>
+			<p class="formline"><%= f.label :amount %><%= f.text_field :amount %></p>
+			<p class="formline"><%= f.label :loan_purpose, 'Purpose for Loan' %><%= f.text_area :loan_purpose, size: '19x3' %></p>
+			<p class="formline">&nbsp;</p>
+			<p class="formline"><button class="btn-std">Create Loan Record</button></p>
+		<% end %>
+	</div>
+</section>

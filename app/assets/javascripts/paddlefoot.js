@@ -1,4 +1,4 @@
-$(document).ready(function(){
+var ready = function(){
 	// Background Color preference preview
 	$('.themes').click(function(){
 		var rgb = $(this).val();
@@ -29,19 +29,20 @@ $(document).ready(function(){
 			'<input id="user_current" name="user[current]" required="true" type="password">');
 		});
 	});
-	// User list pagination
-	var userList = new List('user-list',{
-		valueNames: ['user-data'],
-		page: 4,
-		plugins: [ ListPagination({}) ]
-	});
 	// Show input edit fields for users table listings
 	$('.list>.user-data td span:first-of-type').click(function(){
 		$(this).parents('tr').find('p').fadeToggle();
 	});
+	// Datepicker for dates
 	$('[type="date"]').pickadate();
 	// Show Edit options for users
 	$('.user-setting>span:first-child').click(function(){
 		$(this).parents('.user-setting').siblings('.ghost').slideToggle();
 	});
-});
+	// Select 2 on page loads
+	$('select').select2();
+};
+// Ready Pages
+$(document).ready(ready);
+// Turbolinks
+$(document).on('page:load', ready);

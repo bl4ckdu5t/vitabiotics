@@ -1,5 +1,9 @@
 <section class="row-one">
 	<%= content_tag :p, alert, class: 'notifier', style: 'width: 95%' %>
+	<% userList = @users.all.map { |user| user.email } %>
+	<% if userList == [] %>
+	<h3>No users added yet</h3>
+	<% end %>
 	<% @users.all.map do |user| %>
 	<div class="topmag10 clearfix content">
 		<% if current_user.role.eql? 'administrator' %>

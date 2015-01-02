@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'department/index'
-
-  get 'sessions/new'
-
   get 'users/new'
   get 'login' => 'sessions#new', as: :log_in
   get 'logout' => 'sessions#destroy', as: :log_out

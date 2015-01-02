@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     uploaded_io = params[:user][:avatar]
     password_salt = current_user.password_salt
     pwd = user_params[:current].present? ? BCrypt::Engine.hash_secret(user_params[:current], password_salt) : current_user.password_hash
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       @user.email = user_params[:email]
       @user.avatar = uploaded_io.original_filename if uploaded_io.present?
       @user.password = user_params[:password] if user_params[:password] != ""
+      @user.role = user_params[:role] if user_params[:role].present?
       if @user.save
         redirect_to :back, alert: "Account Updated"
       else

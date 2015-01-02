@@ -10,6 +10,8 @@
 	<link rel="shortcut icon" href="<%= "#{root_url}favicon.ico" %>">
 	<title><%= @preferences.company %></title>
 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<!-- Scripts -->
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -115,7 +117,5 @@
 	</header>
 <%= yield %>
 </section>
-<!-- Scripts -->
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

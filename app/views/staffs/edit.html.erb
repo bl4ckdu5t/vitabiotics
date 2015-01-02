@@ -11,19 +11,19 @@
 			</p>
 			<p class="formline">
 				<%= f.label :title %>
-				<%= f.select :title, options_for_select(@titles) %>
+				<%= f.select :title, options_for_select(@titles, @staff.title) %>
 			</p>
 			<p class="formline"><%= f.label :surname %><%= f.text_field :surname %></p>
 			<p class="formline"><%= f.label :othernames, 'Other Names' %><%= f.text_field :othernames %></p>
 			<p class="formline"><%= f.label :maiden_name, 'Maiden Name' %><%= f.text_field :maiden_name %></p>
 			<p class="formline">
 				<%= f.label :gender %>
-				<%= f.select :gender, options_for_select(@genders) %>
+				<%= f.select :gender, options_for_select(@genders, @staff.gender) %>
 			</p>
 			<p class="formline"><%= f.label :date_of_birth, 'Date of Birth' %><%= f.date_field :date_of_birth, value: @staff.date_of_birth %></p>
 			<p class="formline">
 				<%= f.label :marital_status, 'Marital Status' %>
-				<%= f.select :marital_status, options_for_select(@statuses) %>
+				<%= f.select :marital_status, options_for_select(@statuses, @staff.marital_status) %>
 			</p>
 			<p class="formline"><%= f.label :spouse, 'Spouse Name' %><%= f.text_field :spouse %></p>
 			<p class="formline"><%= f.label :first_child, 'Name of First Child' %><%= f.text_field :first_child %></p>
@@ -31,11 +31,11 @@
 			<p class="formline"><%= f.label :email %><%= f.email_field :email %></p>
 			<p class="formline">
 				<%= f.label :designation %>
-				<%= f.select :designation, options_for_select(@designations) %>
+				<%= f.select :designation, options_for_select(@designations, @staff.designation) %>
 			</p>
 			<p class="formline">
 				<%= f.label :department %>
-				<%= f.select :department, options_for_select(@departments) %>
+				<%= f.select :department, options_for_select(@departments, @staff.department) %>
 			</p>
 			<p class="formline"><%= f.label :staff_from, 'Date of Employment' %><%= f.date_field :staff_from, value: @staff.staff_from %></p>
 			<p class="formline"><%= f.label :prev_employer, 'Previous Employer' %><%= f.text_field :prev_employer %></p>

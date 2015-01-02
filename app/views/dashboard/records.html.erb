@@ -2,7 +2,21 @@
 	<!-- Left Pane -->
 	<div>
 		<div class="title">Loans</div>
-		<div class="content pad10">Fastest</div>
+		<div class="content pad10">
+			<ul class="clean-list">
+				<% @loans.map do |loan| %>
+				<li>
+					<%= "#{Staff.find(loan.staff_id).surname} #{Staff.find(loan.staff_id).othernames}" %>
+					<em class="fr"><%= loan.amount %></em>
+				</li>
+				<% end %>
+			</ul>
+			<% if @loans.first == nil %>
+			<p>No Loan Records yet</p>
+			<% else %>
+			<%= link_to '<div class="read-more">Read more</div>'.html_safe, loans_path %>
+			<% end %>
+		</div>
 	</div>
 	<!-- Right Pane -->
 	<div>

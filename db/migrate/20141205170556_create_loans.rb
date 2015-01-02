@@ -6,6 +6,7 @@ class CreateLoans < ActiveRecord::Migration
       t.datetime :confirm_date
       t.string :guarantor_name
       t.string :guarantor_dept
+      t.string :amount
       t.string :loan_purpose
       t.boolean :loan_approved
       t.string :monthly_deduction
