@@ -12,15 +12,52 @@
 				<% end %>
 			</ul>
 			<% if @loans.first == nil %>
-			<p>No Loan Records yet</p>
+			<p>No Loan Records created</p>
 			<% else %>
 			<%= link_to '<div class="read-more">Read more</div>'.html_safe, loans_path %>
+			<% end %>
+		</div>
+
+		<div class="title topmag10">Reliefs</div>
+		<div class="content pad10">
+			<ul class="clean-list">
+				<% @reliefs.map do |relief| %>
+				<li>
+					<%= "#{Staff.find(relief.staff_id).surname} #{Staff.find(relief.staff_id).othernames}" %>
+					<em class="fr"><%= relief.category.capitalize %></em>
+				</li>
+				<% end %>
+			</ul>
+			<% if @reliefs.first == nil %>
+			<p>No Relief Records created</p>
+			<% else %>
+			<%= link_to '<div class="read-more">Read more</div>'.html_safe, reliefs_path %>
 			<% end %>
 		</div>
 	</div>
 	<!-- Right Pane -->
 	<div>
 		<div class="title">Sabbaticals</div>
-		<div class="content pad10">Fastest</div>
+		<div class="content pad10">
+			<ul class="clean-list">
+				<% @sabbaticals.map do |sabbatical| %>
+				<li>
+					<%= "#{Staff.find(sabbatical.staff_id).surname} #{Staff.find(sabbatical.staff_id).othernames}" %>
+					<em class="fr"><%= "#{sabbatical.category.capitalize}&nbsp;Leave".html_safe %></em>
+				</li>
+				<% end %>
+			</ul>
+			<% if @sabbaticals.first == nil %>
+			<p>No Sabbatical Records created</p>
+			<% else %>
+			<%= link_to '<div class="read-more">Read more</div>'.html_safe, sabbaticals_path %>
+			<% end %>
+		</div>
+
+		<div class="title topmag10">Attendance</div>
+		<div class="content pad10">
+			<p>Some Attendance records here</p>
+			<ul class="clean-list"></ul>
+		</div>
 	</div>
 </section>

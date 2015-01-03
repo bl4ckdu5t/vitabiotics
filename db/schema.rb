@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(version: 20141205171114) do
     t.string   "guarantor_name"
     t.string   "guarantor_dept"
     t.string   "amount"
-    t.string   "loan_purpose"
-    t.boolean  "loan_approved"
+    t.string   "purpose"
+    t.boolean  "approval"
+    t.boolean  "paid",              default: false
     t.string   "monthly_deduction"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -58,18 +59,18 @@ ActiveRecord::Schema.define(version: 20141205171114) do
 
   create_table "reliefs", force: true do |t|
     t.datetime "date"
-    t.string   "type"
+    t.string   "category"
     t.integer  "staff_id"
     t.string   "reason"
-    t.datetime "time_out"
-    t.datetime "time_in"
+    t.time     "time_out"
+    t.time     "time_in"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sabbaticals", force: true do |t|
     t.integer  "staff_id"
-    t.string   "type"
+    t.string   "category"
     t.string   "registration_no"
     t.string   "duration"
     t.datetime "commence_date"

@@ -378,56 +378,47 @@ h2.inline-block {
   line-height: 10px;
 }
 
-.listings {
-  width: 98%;
-  background: $white;
-  margin: 10px 0px 10px 0px;
-  border: solid thin #dddddd;
-  thead {
-    th {
-      text-align: left;
-      border-bottom: solid thin #dddddd;
-    }
-  }
-  th, td {
-    padding: 8px 5px;
+.broken-list{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 95%;
+  overflow: hidden;
+  >li{
+    background: $white;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
     position: relative;
-    strong {
-      display: block;
-    }
-    p{ height: 10px; display: none; }
-    input[type="text"],input[type="email"],select,[type="submit"]{
+    box-shadow: 0 2px 3px #aaaaaa;
+    >*:not(strong){
       position: absolute;
-      bottom: 10px;
-      width: 94%;
-      height: 30px;
+      top: 10px;
     }
-    span {
-      font-size: 12px;
-      padding: 0 10px;
-      cursor: pointer;
-      &:first-of-type {
-        padding-left: 0 !important;
-        color: $color-pure-orange;
-      }
-      &:nth-of-type(2) {
-        color: $myblue;
-      }
-      &:last-of-type {
-        color: red;
-      }
-      &:not(:last-child) {
-        border-right: solid thin #cccccc;
-      }
-    }
-    &:first-of-type {
-      width: 4%;
+    time{ left: 50%; }
+    span{ left: 30%; }
+    .link{ right: 2%; }
+    button{
+      border: solid thin #aaa;
+      color: #888;
+      background: #eee;
+      border-radius: 5px;
+      padding: 5px 10px;
+      top: 5px;
     }
   }
-  tbody {
-    color: #272a33;
-    tr:nth-child(odd) {
-      background: #eeeeee;
+  >.dotted{
+    padding-left: 30px;
+    &:before{
+      content: '';
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #ddd;
+      box-shadow: 2px 1px 4px #aaa inset;
+      position: absolute;
+      left: 8px;
+      top: 12px;
     }
   }
 }

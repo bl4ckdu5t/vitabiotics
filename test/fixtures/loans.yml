@@ -6,8 +6,8 @@ one:
   confirm_date: 2014-12-05 11:05:56
   guarantor_name: MyString
   guarantor_dept: MyString
-  loan_purpose: MyString
-  loan_approved: true
+  purpose: MyString
+  approval: true
   monthly_deduction: MyString
 
 two:
@@ -16,6 +16,6 @@ two:
   confirm_date: 2014-12-05 11:05:56
   guarantor_name: MyString
   guarantor_dept: MyString
-  loan_purpose: MyString
-  loan_approved: true
+  purpose: MyString
+  approval: true
   monthly_deduction: MyString

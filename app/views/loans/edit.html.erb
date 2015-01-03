@@ -1,13 +1,13 @@
 <div class="middle-block" style="width:80%"><%= content_tag :p, notice, class: 'notifier' %></div>
 <section class="staffData">
 	<div class="topbar">
-		Add a Loan record
+		Edit Loan record
 	</div>
 	<div class="entry">
 		<%= form_for @loan do |f| %>
 			<p class="formline">
 				<%= f.label :staff_id, 'Staff' %>
-				<%= f.select :staff_id, options_for_select([['Select staff', 0, disabled: 'true']] + @staffs, 0) %>
+				<%= f.select :staff_id, options_for_select([['Select staff', 0, disabled: 'true']] + @staffs, @loan.staff_id) %>
 			</p>
 			<p class="formline clearfix"><%= f.label :registration_no, 'Registration no' %><%= f.text_field :registration_no %></p>
 			<p class="formline clearfix"><%= f.label :guarantor_name, 'Guarantor Name' %><%= f.text_field :guarantor_name %></p>
@@ -20,9 +20,14 @@
 				<%= f.radio_button :approval, 'false' %> <span class="opt2">unapproved</span>
 			</p>
 			<p class="formline"><%= f.label :amount %><%= f.text_field :amount %></p>
+			<p class="formline">
+				<%= f.label :paid %>
+				<%= f.radio_button :paid, 'true' %> <span class="opt1">yes</span>
+				<%= f.radio_button :paid, 'false' %> <span class="opt2">no</span>
+			</p>
 			<p class="formline"><%= f.label :purpose, 'Purpose for Loan' %><%= f.text_area :purpose, size: '19x3' %></p>
 			<p class="formline">&nbsp;</p>
-			<p class="formline"><button class="btn-std">Create Loan Record</button></p>
+			<p class="formline"><button class="btn-std">Update Loan Record</button></p>
 		<% end %>
 	</div>
 </section>

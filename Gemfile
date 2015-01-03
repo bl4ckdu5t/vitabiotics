@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Autoprefixer
+gem 'autoprefixer-rails'
 # Bcrypt for password hashing
 gem 'bcrypt', :require => 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (4.0.2.2)
+      execjs
     bcrypt (3.1.9)
     builder (3.2.2)
     coffee-rails (4.0.1)
@@ -109,7 +111,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.6.0)
+    uglifier (2.6.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
 
@@ -117,6 +119,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)

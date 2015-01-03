@@ -2,7 +2,7 @@
 
 one:
   staff_id: 1
-  type: 
+  category: casual
   registration_no: MyString
   duration: MyString
   commence_date: 2014-12-05 10:36:13
@@ -12,7 +12,7 @@ one:
 
 two:
   staff_id: 1
-  type: 
+  category: maternity
   registration_no: MyString
   duration: MyString
   commence_date: 2014-12-05 10:36:13

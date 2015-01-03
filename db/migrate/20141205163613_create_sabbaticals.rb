@@ -2,7 +2,7 @@ class CreateSabbaticals < ActiveRecord::Migration
   def change
     create_table :sabbaticals do |t|
       t.integer :staff_id
-      t.string :type
+      t.string :category
       t.string :registration_no
       t.string :duration
       t.datetime :commence_date

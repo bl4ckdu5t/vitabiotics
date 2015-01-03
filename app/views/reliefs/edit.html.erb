@@ -1,0 +1,24 @@
+<div class="middle-block" style="width:80%"><%= content_tag :p, notice, class: 'notifier' %></div>
+<section class="staffData">
+	<div class="topbar">
+		Edit Relief Record
+	</div>
+	<div class="entry">
+		<%= form_for @relief do |f| %>
+			<p class="formline">
+				<%= f.label :staff_id, 'Staff' %>
+				<%= f.select :staff_id, options_for_select([['Select staff', 0, disabled: 'true']] + @staffs, @relief.staff_id) %>
+			</p>
+			<p class="formline clearfix">
+				<%= f.label :category %>
+				<%= f.select :category, options_for_select(@types) %>
+			</p>
+			<p class="formline clearfix"><%= f.label :time_in, 'Time In' %><%= f.time_field :time_in %></p>
+			<p class="formline clearfix"><%= f.label :time_out, 'Time Out' %><%= f.time_field :time_out %></p>
+			<p class="formline clearfix"><%= f.label :date %><%= f.date_field :date %></p>
+			<p class="formline"><%= f.label :reason %><%= f.text_area :reason, size: '19x3' %></p>
+			<p class="formline">&nbsp;</p>
+			<p class="formline"><button class="btn-std">Edit Relief</button></p>
+		<% end %>
+	</div>
+</section>

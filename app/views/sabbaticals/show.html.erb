@@ -1,0 +1,20 @@
+<section class="staffData">
+	<div class="topbar">
+		<% if current_user.role.eql? 'administrator' %>
+		<div class="fl">
+			<span><%= link_to 'Edit', edit_sabbatical_path %></span>
+			<span><%= link_to 'Delete', @sabbatical, method: 'delete', 'data-confirm' => 'Are you sure?' %></span>
+		</div>
+		<% end %>
+	</div>
+	<div class="entry">
+		<em>Sabbatical Record for <%= "#{Staff.find(@sabbatical.staff_id).surname} #{Staff.find(@sabbatical.staff_id).othernames}" %></em>
+		<p><strong>Registration number:</strong><span><%= @sabbatical.registration_no %></span></p>
+		<p><strong>Category:</strong><span><%= "#{@sabbatical.category} leave" %></span></p>
+		<p><strong>Duration:</strong><span><%= @sabbatical.duration %></span></p>
+		<p><strong>Commence Date:</strong><span><%= @sabbatical.commence_date.strftime('%e %B, %Y') %></span></p>
+		<p><strong>End Date:</strong><span><%= @sabbatical.resume_date.strftime('%e %B, %Y') %></span></p>
+		<p><strong>Encashment:</strong><span><%= @sabbatical.encashment %></span></p>
+		<p><strong>Reason:</strong><span><%= @sabbatical.reason %></span><br><br><br></p>
+	</div>
+</section>

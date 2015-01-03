@@ -68,3 +68,7 @@ departments = [
 departments.each do |name, parent|
 	Department.create!(name: "#{name}", parent: "#{parent}")
 end
+
+3.times do |t|
+	Staff.create!(title: 'mr', surname: "John#{t}", othernames: "Doe#{t}", gender: 'male', annual_salary: '$500,000', email: "j#{t}@jt.com")
+end

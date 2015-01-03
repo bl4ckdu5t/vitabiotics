@@ -2,11 +2,11 @@ class CreateReliefs < ActiveRecord::Migration
   def change
     create_table :reliefs do |t|
       t.datetime :date
-      t.string :type
+      t.string :category
       t.integer :staff_id
       t.string :reason
-      t.datetime :time_out
-      t.datetime :time_in
+      t.time :time_out
+      t.time :time_in
 
       t.timestamps
     end

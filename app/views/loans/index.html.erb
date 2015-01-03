@@ -1,0 +1,14 @@
+<section class="row-doubles" id="department-list">
+	<h1>All Loan Records</h1>
+	<ul class="broken-list list">
+		<% @loans.map do |loan| %>
+		<li class="dotted deptname">
+			<strong><%= "#{Staff.find(loan.staff_id).surname} #{Staff.find(loan.staff_id).othernames}" %></strong>
+			<span><%= loan.amount %></span>
+			<time><%= loan.confirm_date.strftime('%e %B, %Y') %></time>
+			<%= link_to '<button>View detailed</button>'.html_safe, loan_path(loan.id), class: 'link', style: 'top: 5px' %>
+		</li>
+		<% end %>
+	</ul>
+	<ul class="pagination"></ul>
+</section>

@@ -33,8 +33,9 @@ var ready = function(){
 	$('.list>.user-data td span:first-of-type').click(function(){
 		$(this).parents('tr').find('p').fadeToggle();
 	});
-	// Datepicker for dates
+	// Datepicker for dates and time
 	$('[type="date"]').pickadate();
+	$('[type="time"]').pickatime();
 	// Show Edit options for users
 	$('.user-setting>span:first-child').click(function(){
 		$(this).parents('.user-setting').siblings('.ghost').slideToggle();
@@ -46,3 +47,20 @@ var ready = function(){
 $(document).ready(ready);
 // Turbolinks
 $(document).on('page:load', ready);
+
+// Overriding rails confirm dialog boxes
+/*
+$.rails.confirm = function(message){
+	return swal({
+		title: message,
+		text: 'you will not be able to undo this',
+		showCancelButton: true,
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "Yes, delete it!",
+		closeOnConfirm: false 
+	}, function(){
+		swal("Deleted!", "Item has been deleted", "success");
+		return false;
+	});
+}
+*/

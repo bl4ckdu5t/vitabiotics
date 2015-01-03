@@ -7,8 +7,9 @@ class CreateLoans < ActiveRecord::Migration
       t.string :guarantor_name
       t.string :guarantor_dept
       t.string :amount
-      t.string :loan_purpose
-      t.boolean :loan_approved
+      t.string :purpose
+      t.boolean :approval
+      t.boolean :paid, default: false
       t.string :monthly_deduction
 
       t.timestamps

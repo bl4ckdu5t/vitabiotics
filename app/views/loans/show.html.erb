@@ -1,0 +1,25 @@
+<section class="staffData">
+	<div class="topbar">
+		<% if current_user.role.eql? 'administrator' %>
+		<div class="fl">
+			<span><%= link_to 'Edit', edit_loan_path %></span>
+			<span><%= link_to 'Delete', @loan, method: 'delete', 'data-confirm' => 'Are you sure?' %></span>
+		</div>
+		<% end %>
+	</div>
+	<div class="entry">
+		<em>Loan Record for <%= "#{Staff.find(@loan.staff_id).surname} #{Staff.find(@loan.staff_id).othernames}" %></em>
+		<p><strong>Registration number:</strong><span><%= @loan.registration_no %></span></p>
+		<p><strong>Employment date:</strong><span><%= "#{Staff.find(@loan.staff_id).staff_from}" %></span></p>
+		<p><strong>Annual Salary:</strong><span><%= "#{Staff.find(@loan.staff_id).annual_salary}" %></span></p>
+		<p><strong>Department:</strong><span><%= "#{Staff.find(@loan.staff_id).department}" %></span></p>
+		<p><strong>Guarantor:</strong><span><%= @loan.guarantor_name %></span></p>
+		<p><strong>Guarantor's department:</strong><span><%= @loan.guarantor_dept %></span></p>
+		<p><strong>Amount:</strong><span><%= @loan.amount %></span></p>
+		<p><strong>Approval:</strong><span><%= @loan.approval == true ? 'Approved':'Not Approved' %></span></p>
+		<p><strong>Monthly Deduction:</strong><span><%= @loan.monthly_deduction %></span></p>
+		<p><strong>Previous Loan debts:</strong><span><%= @outstanding %></span></p>
+		<p><strong>Payment status:</strong><span><%= @loan.paid == true ? 'Paid': 'Not paid' %></span></p>
+		<p><strong>Purpose of Loan:</strong><span><%= @loan.purpose %></span><br><br><br></p>
+	</div>
+</section>

@@ -1,0 +1,14 @@
+<section class="row-doubles" id="department-list">
+	<h1>All Relief Records</h1>
+	<ul class="broken-list list">
+		<% @reliefs.map do |relief| %>
+		<li class="dotted deptname">
+			<strong><%= "#{Staff.find(relief.staff_id).surname} #{Staff.find(relief.staff_id).othernames}" %></strong>
+			<span><%= "#{relief.category.capitalize}" %></span>
+			<time><%= relief.date.strftime('%e %B, %Y') %></time>
+			<%= link_to '<button>View detailed</button>'.html_safe, relief_path(relief.id), class: 'link', style: 'top: 5px' %>
+		</li>
+		<% end %>
+	</ul>
+	<ul class="pagination"></ul>
+</section>

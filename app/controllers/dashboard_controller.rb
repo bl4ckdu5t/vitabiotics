@@ -10,6 +10,8 @@ class DashboardController < ApplicationController
   end
   def records
     @loans = Loan.take(5)
+    @sabbaticals = Sabbatical.take(5)
+    @reliefs = Relief.take(5)
   end
   def preferences
     @preference = Preference.find(1)
