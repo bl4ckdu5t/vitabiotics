@@ -1,0 +1,21 @@
+<div class="middle-block" style="width:80%"><%= content_tag :p, notice, class: 'notifier' %></div>
+<section class="staffData">
+	<div class="topbar">
+		Add Attendance Record
+	</div>
+	<div class="entry">
+		<%= form_for @attendance do |f| %>
+			<p class="formline">
+				<%= f.label :staff_id, 'Staff' %>
+				<%= f.select :staff_id, options_for_select([['Select staff', 0, disabled: 'true']] + @staffs, 0) %>
+			</p>
+			<p class="formline"><%= f.label :date %><%= f.date_field :date %></p>
+			<p class="formline">
+				<%= f.label :presence %>
+				<%= f.radio_button :presence, 'true' %> <span class="opt1">present</span>
+				<%= f.radio_button :presence, 'false' %> <span class="opt2">absent</span>
+			</p>
+			<p class="formline"><button class="btn-std">Create Attendance Record</button></p>
+		<% end %>
+	</div>
+</section>

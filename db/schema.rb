@@ -19,9 +19,7 @@ ActiveRecord::Schema.define(version: 20141205171114) do
   create_table "attendances", force: true do |t|
     t.integer  "staff_id"
     t.boolean  "presence"
-    t.integer  "day"
-    t.integer  "month"
-    t.integer  "year"
+    t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

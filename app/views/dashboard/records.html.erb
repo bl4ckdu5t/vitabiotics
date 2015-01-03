@@ -56,8 +56,19 @@
 
 		<div class="title topmag10">Attendance</div>
 		<div class="content pad10">
-			<p>Some Attendance records here</p>
-			<ul class="clean-list"></ul>
+			<ul class="clean-list">
+				<% @attendances.map do |attendance| %>
+				<li>
+					<%= "#{Staff.find(attendance.staff_id).surname} #{Staff.find(attendance.staff_id).othernames}" %>
+					<em class="fr"><%= attendance.presence == true ? 'present' : 'absent' %></em>
+				</li>
+				<% end %>
+			</ul>
+			<% if @attendances.first == nil %>
+			<p>No Attendance Records created</p>
+			<% else %>
+			<%= link_to '<div class="read-more">Read more</div>'.html_safe, attendances_path %>
+			<% end %>
 		</div>
 	</div>
 </section>

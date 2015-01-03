@@ -1,0 +1,14 @@
+<section class="row-doubles" id="department-list">
+	<h1>All Attendance Records</h1>
+	<ul class="broken-list list">
+		<% @attendances.map do |attendance| %>
+		<li class="dotted deptname">
+			<strong><%= "#{Staff.find(attendance.staff_id).surname} #{Staff.find(attendance.staff_id).othernames}" %></strong>
+			<span><%= attendance.presence == true ? 'present' : 'absent' %></span>
+			<time><%= attendance.date.strftime('%e %B, %Y') %></time>
+			<%= link_to '<button>View detailed</button>'.html_safe, attendance_path(attendance.id), class: 'link', style: 'top: 5px' %>
+		</li>
+		<% end %>
+	</ul>
+	<ul class="pagination"></ul>
+</section>

@@ -1,0 +1,15 @@
+<section class="staffData">
+	<div class="topbar">
+		<% if current_user.role.eql? 'administrator' %>
+		<div class="fl">
+			<span><%= link_to 'Edit', edit_attendance_path %></span>
+			<span><%= link_to 'Delete', @attendance, method: 'delete', 'data-confirm' => 'Are you sure?' %></span>
+		</div>
+		<% end %>
+	</div>
+	<div class="entry">
+		<em>Attendance Record for <%= "#{Staff.find(@attendance.staff_id).surname} #{Staff.find(@attendance.staff_id).othernames}" %></em>
+		<p><strong>Presence:</strong><span><%= @attendance.presence == true ? 'present' : 'absent' %></span></p>
+		<p><strong>Date:</strong><span><%= "#{@attendance.date.strftime('%e %B, %Y')}" %></span></p>
+	</div>
+</section>

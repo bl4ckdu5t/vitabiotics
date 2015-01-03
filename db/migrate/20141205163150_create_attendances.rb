@@ -3,9 +3,7 @@ class CreateAttendances < ActiveRecord::Migration
   	create_table :attendances do |t|
   		t.integer :staff_id
   		t.boolean :presence
-  		t.integer :day
-  		t.integer :month
-  		t.integer :year
+  		t.datetime :date
 
   		t.timestamps
   	end

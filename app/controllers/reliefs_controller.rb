@@ -25,6 +25,16 @@ class ReliefsController < ApplicationController
 		@relief = Relief.find(params[:id])
 	end
 
+	def update
+		@relief = Relief.find(params[:id])
+		updated = @relief.update_attributes(relief_params)
+		if updated
+			redirect_to :back, notice: 'Record updated'
+		else
+			render "edit"
+		end
+	end
+
 	def destroy
 		@relief = Relief.find(params[:id])
 		if @relief.destroy
