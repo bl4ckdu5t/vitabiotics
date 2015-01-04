@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
       childfetch = Department.where(parent: "#{department.name}").select('name')
       instance_variable_set("@#{department.name}Children".gsub(' ','_'), childfetch.map { |child| "#{child.name}" }.join(',') )
     end
+    @activities = Activity.where(user_id: current_user.id).order("updated_at DESC").take(5)
   end
   def records
     @loans = Loan.take(5)

@@ -16,6 +16,7 @@ class StaffsController < ApplicationController
 		end
 		@staff = Staff.new(staff_params)
 		if @staff.save
+			Activity.new({'user_id' => current_user.id, 'activity' => "Created a new staff" }).save
 			redirect_to :back, notice: 'Staff has been created'
 		else
 			redirect_to :back, notice: 'Failed to create staff'
@@ -38,6 +39,7 @@ class StaffsController < ApplicationController
 		end
 		updated = @staff.update_attributes(staff_params)
 		if updated
+			Activity.new({'user_id' => current_user.id, 'activity' => "Updated a staff data" }).save
 			redirect_to :back, notice: 'Staff updated'
 		else
 			render 'edit', notice: "Failed to update"
@@ -46,7 +48,8 @@ class StaffsController < ApplicationController
 	def destroy
 		@staff = Staff.find(params[:id])
 	    if @staff.destroy
-	      redirect_to staffs_path
+	    	Activity.new({'user_id' => current_user.id, 'activity' => "Deleted a staff" }).save
+	    	redirect_to staffs_path
 	    end
 	end
 	private

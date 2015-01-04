@@ -11,6 +11,7 @@ class SabbaticalsController < ApplicationController
 	def create
 		@sabbatical = Sabbatical.new(sabbatical_params)
 		if @sabbatical.save
+			Activity.new({'user_id' => current_user.id, 'activity' => "Created a sabbatical record" }).save
 			redirect_to :back, notice: 'Leave record created'
 		else
 			render "new"
@@ -29,6 +30,7 @@ class SabbaticalsController < ApplicationController
 		@sabbatical = Sabbatical.find(params[:id])
 		updated = @sabbatical.update_attributes(sabbatical_params)
 		if updated
+			Activity.new({'user_id' => current_user.id, 'activity' => "Updated a sabbatical record" }).save
 			redirect_to :back, notice: 'Record updated'
 		else
 			render "edit"
@@ -38,7 +40,8 @@ class SabbaticalsController < ApplicationController
 	def destroy
 		@sabbatical = Sabbatical.find(params[:id])
 	    if @sabbatical.destroy
-	      redirect_to sabbaticals_path
+	    	Activity.new({'user_id' => current_user.id, 'activity' => "Deleted a sabbatical record" }).save
+	    	redirect_to sabbaticals_path
 	    end
 	end
 private

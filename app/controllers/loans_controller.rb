@@ -11,6 +11,7 @@ class LoansController < ApplicationController
 	def create
 		@loan = Loan.new(loan_params)
 		if @loan.save
+			Activity.new({'user_id' => current_user.id, 'activity' => "Created a loan record" }).save
 			redirect_to :back, notice: 'Loan record created'
 		else
 			render "new", notice: 'Failed to create loan record'
@@ -33,6 +34,7 @@ class LoansController < ApplicationController
 		@loan = Loan.find(params[:id])
 		updated = @loan.update_attributes(loan_params)
 		if updated
+			Activity.new({'user_id' => current_user.id, 'activity' => "Updated a loan record" }).save
 			redirect_to :back, notice: 'Record updated'
 		else
 			render "edit"
@@ -42,7 +44,8 @@ class LoansController < ApplicationController
 	def destroy
 		@loan = Loan.find(params[:id])
 	    if @loan.destroy
-	      redirect_to loans_path
+	    	Activity.new({'user_id' => current_user.id, 'activity' => "Deleted a loan record" }).save
+	    	redirect_to loans_path
 	    end
 	end
 

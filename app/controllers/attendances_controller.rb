@@ -10,6 +10,7 @@ class AttendancesController < ApplicationController
 	def create
 		@attendance = Attendance.new(attendance_params)
 		if @attendance.save
+			Activity.new({'user_id' => current_user.id, 'activity' => "Created attendance record" }).save
 			redirect_to :back, notice: 'Attendance record created'
 		else
 			render "new"
@@ -25,6 +26,7 @@ class AttendancesController < ApplicationController
 		@attendance = Attendance.find(params[:id])
 		updated = @attendance.update_attributes(attendance_params)
 		if updated
+			Activity.new({'user_id' => current_user.id, 'activity' => "Updated an attendance record" }).save
 			redirect_to :back, notice: 'Record updated'
 		else
 			render "edit"
@@ -33,6 +35,7 @@ class AttendancesController < ApplicationController
 	def destroy
 		@attendance = Attendance.find(params[:id])
 		if @attendance.destroy
+			Activity.new({'user_id' => current_user.id, 'activity' => "Deleted attendance record" }).save
 			redirect_to attendances_path
 		end
 	end

@@ -11,6 +11,7 @@ class ReliefsController < ApplicationController
 	def create
 		@relief = Relief.new(relief_params)
 		if @relief.save
+			Activity.new({'user_id' => current_user.id, 'activity' => "Created a relief record" }).save
 			redirect_to :back, notice: "#{relief_params[:category]} has been recorded"
 		else
 			render "new"
@@ -29,6 +30,7 @@ class ReliefsController < ApplicationController
 		@relief = Relief.find(params[:id])
 		updated = @relief.update_attributes(relief_params)
 		if updated
+			Activity.new({'user_id' => current_user.id, 'activity' => "Updated a relief record" }).save
 			redirect_to :back, notice: 'Record updated'
 		else
 			render "edit"
@@ -38,6 +40,7 @@ class ReliefsController < ApplicationController
 	def destroy
 		@relief = Relief.find(params[:id])
 		if @relief.destroy
+			Activity.new({'user_id' => current_user.id, 'activity' => "Deleted a relief record" }).save
 			redirect_to reliefs_path
 		else
 			render "show"

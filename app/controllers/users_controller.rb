@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
+      @activity = Activity.new({'user_id' => current_user.id, 'activity' => 'Created new user'})
+      @activity.save
   		redirect_to :back, notice: "Account Created"
   	else
   		redirect_to :back, notice: "Failed to create account"
@@ -35,6 +37,7 @@ class UsersController < ApplicationController
       @user.password = user_params[:password] if user_params[:password] != ""
       @user.role = user_params[:role] if user_params[:role].present?
       if @user.save
+        Activity.new({'user_id' => current_user.id, 'activity' => "Updated a user" }).save
         redirect_to :back, alert: "Account Updated"
       else
         redirect_to :back, alert: @user.errors.full_messages
@@ -45,6 +48,7 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     if user.destroy
+      Activity.new({'user_id' => current_user.id, 'activity' => "Deleted a user" }).save
       redirect_to :back
     end
   end

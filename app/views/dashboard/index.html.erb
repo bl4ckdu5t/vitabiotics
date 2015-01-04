@@ -35,12 +35,15 @@
 			<div class="title">Recent Activities</div>
 			<div class="content pad10">
 				<ul class="clean-list">
-					<li>New staff added <em class="fr">26/05/2014</em></li>
-					<li>Changed Company Name <em class="fr">26/05/2014</em></li>
-					<li>Updated Loan records <em class="fr">26/05/2014</em></li>
-					<li>Updated Attendance <em class="fr">26/05/2014</em></li>
+					<% @activities.map do |activity| %>
+					<li><%= "#{activity.activity}".capitalize %> <em class="fr"><%= activity.created_at.strftime('%D') %></em></li>
+					<% end %>
 				</ul>
-				<a href=""><div class="read-more">Read more</div></a>
+				<% if @activities.first == nil %>
+				<p>No Recent Activities</p>
+				<% else %>
+				<%= link_to '<div class="read-more">Read more</div>'.html_safe, activities_path %>
+				<% end %>
 			</div>
 		</div>
 		<div class="topmag10 background-cool-blue pad20">
@@ -62,12 +65,14 @@
 			<ul class="accord-style">
 				<% @departments.each do |department| %>
 				<li <%= instancevars(department.name).present? ? "data-accord=#{nameslug(department.name)}":'' %>>
-					<%= "#{department.name}" %>
+					<%= link_to "#{department.name}", department_cat_path(department.name.downcase.gsub(' ','-')) %>
 				</li>
 					<% if(instancevars(department.name).present?) %>
 					<ul id="<%= nameslug(department.name) %>">
 						<% instancevars(department.name).split(',').each do |child| %>
-						<li><a href=""><%= "#{child}" %></a></li>
+						<li>
+						<%= link_to "#{child}", department_cat_path(department.name.downcase.gsub(' ','-') +'/'+ child.downcase.gsub(' ','-')) %>
+						</li>
 						<% end %>
 					</ul>
 					<% end %>

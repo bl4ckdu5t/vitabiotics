@@ -1,0 +1,12 @@
+<section class="row-doubles" id="department-list">
+	<h1>Activity Logs</h1>
+	<ul class="broken-list list">
+		<% @activities.map do |activity| %>
+		<li class="deptname"><%= activity.activity %><time><%= activity.created_at.strftime('%e %B, %Y') %></time></li>
+		<% end %>
+	</ul>
+	<ul class="pagination"></ul>
+	<% if @activities.first != nil %>
+	<%= link_to 'Clear Logs', activity_clear_path, method: 'delete', 'data-confirm' => 'Are you sure?', class: 'btn-std' %>
+	<% end %>
+</section>

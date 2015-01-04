@@ -12,6 +12,7 @@ class PreferencesController < ApplicationController
   	@preference.theme = params[:preference][:theme]
   	@preference.header = uploaded_io.original_filename if uploaded_io.present?
   	if @preference.save
+      Activity.new({'user_id' => current_user.id, 'activity' => "Edited application settings" }).save
   		redirect_to :back, notice: 'Preferences updated'
   	else
   		redirect_to :back, notice: 'Preferences failed to update'

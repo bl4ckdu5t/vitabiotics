@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  delete 'activities/clear' => 'activities#clear', as: :activity_clear
+  get 'activities' => 'activities#index', as: :activities
+  get 'departments/*param' => 'departments#categories', as: :department_cat
   get 'login' => 'sessions#new', as: :log_in
   get 'logout' => 'sessions#destroy', as: :log_out
   resources :sessions, :users, :staffs, :departments, :loans, :sabbaticals, :attendances, :preferences, :reliefs
