@@ -2,7 +2,7 @@
 
 one:
   date: 2014-12-05 10:11:15
-  type: 
+  category: query
   staff_id: 1
   reason: MyString
   time_out: 2014-12-05 10:11:15
@@ -10,7 +10,7 @@ one:
 
 two:
   date: 2014-12-05 10:11:15
-  type: 
+  category: query
   staff_id: 1
   reason: MyString
   time_out: 2014-12-05 10:11:15

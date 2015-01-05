@@ -8,6 +8,10 @@ class DashboardController < ApplicationController
       instance_variable_set("@#{department.name}Children".gsub(' ','_'), childfetch.map { |child| "#{child.name}" }.join(',') )
     end
     @activities = Activity.where(user_id: current_user.id).order("updated_at DESC").take(5)
+    all_records = Attendance.pluck(:date, :presence).map { |attendance, presence| [attendance.strftime('%B'), presence] }
+    @attendances = all_records.group_by(&:first).map do |k, v|
+      trues, falses = v.partition(&:last); [k, "#{(Float(trues.size)/ (Float(falses.size) + Float(trues.size)) * 100).round}%"]
+    end
   end
   def records
     @loans = Loan.take(5)

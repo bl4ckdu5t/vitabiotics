@@ -9,7 +9,7 @@
 	</div>
 	<div class="entry">
 		<em>Relief Record for <%= "#{Staff.find(@relief.staff_id).surname} #{Staff.find(@relief.staff_id).othernames}" %></em>
-		<p><strong>Category:</strong><span><%= "#{@relief.category.capitalize}" %></span></p>
+		<p><strong>Category:</strong><span><%= "#{@relief.category}".capitalize %></span></p>
 		<p><strong>Time In:</strong><span><%= "#{@relief.time_in.strftime("%r")}" %></span></p>
 		<p><strong>Time Out:</strong><span><%= "#{@relief.time_out.strftime("%r")}" %></span></p>
 		<p><strong>Date:</strong><span><%= "#{@relief.date.strftime('%e %B, %Y')}" %></span></p>

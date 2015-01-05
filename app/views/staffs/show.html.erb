@@ -20,8 +20,8 @@
 	</div>
 	<div class="entry">
 		<em>staff since <%= @staff.staff_from %></em>
-		<p><strong>Title:</strong><span><%= @staff.title.capitalize %></span></p>
-		<p><strong>Surname:</strong><span><%= @staff.surname.capitalize %></span></p>
+		<p><strong>Title:</strong><span><%= "#{@staff.title}".capitalize %></span></p>
+		<p><strong>Surname:</strong><span><%= "#{@staff.surname}".capitalize %></span></p>
 		<p><strong>Other names:</strong><span><%= @staff.othernames %></span></p>
 		<p><strong>Mother's maiden name:</strong><span><%= @staff.maiden_name %></span></p>
 		<p><strong>Gender:</strong><span><%= @staff.gender %></span></p>
@@ -31,8 +31,8 @@
 		<p><strong>Name of first child:</strong><span><%= @staff.first_child %></span></p>
 		<p><strong>Phone:</strong><span><%= @staff.phone %></span></p>
 		<p><strong>Email:</strong><span><%= @staff.email %></span></p>
-		<p><strong>Department:</strong><span><%= @staff.department.capitalize %></span></p>
-		<p><strong>Designation:</strong><span><%= @staff.designation.capitalize %></span></p>
+		<p><strong>Department:</strong><span><%= "#{@staff.department}".capitalize %></span></p>
+		<p><strong>Designation:</strong><span><%= "#{@staff.designation}".capitalize %></span></p>
 		<p><strong>Previous employer:</strong><span><%= @staff.prev_employer %></span></p>
 		<p><strong>Post held:</strong><span><%= @staff.post_held %></span></p>
 		<p><strong>Years of duty:</strong><span><%= @staff.duty_years %></span></p>
