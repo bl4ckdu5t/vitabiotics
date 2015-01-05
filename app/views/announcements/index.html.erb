@@ -1,0 +1,13 @@
+<section class="row-doubles" id="department-list">
+	<h1>Announcements</h1>
+	<ul class="broken-list list">
+		<% @announcements.map do |a| %>
+		<li class="deptname">
+			<%= a.message %>
+			<span><%= a.sender == current_user.id ? "you" : "#{User.find(a.sender).name}" %></span>
+			<time><%= a.created_at.strftime('%e %B, %Y') %></time>
+		</li>
+		<% end %>
+	</ul>
+	<ul class="pagination"></ul>
+</section>

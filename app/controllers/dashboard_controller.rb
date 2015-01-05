@@ -12,6 +12,7 @@ class DashboardController < ApplicationController
     @attendances = all_records.group_by(&:first).map do |k, v|
       trues, falses = v.partition(&:last); [k, "#{(Float(trues.size)/ (Float(falses.size) + Float(trues.size)) * 100).round}%"]
     end
+    @announcement = Announcement.new
   end
   def records
     @loans = Loan.take(5)

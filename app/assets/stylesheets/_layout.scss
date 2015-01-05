@@ -695,3 +695,25 @@ ul.pagination{
     margin-left: 10px;
   }
 }
+.fancy-form, .new_announcement{
+  textarea{
+    resize: none;
+    width: 100%;
+    height: 80px;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px;
+  }
+  input[type="submit"],button{
+    margin: 10px 0 0 0;
+    border: none;
+    color: $white;
+    background: transparent;
+    padding: 10px;
+    border: solid thin $white;
+    border-radius: 5px;
+    &:hover{
+      background: rgba($white, $reg_alpha);
+    }
+  }
+}
