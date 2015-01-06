@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-
+ruby "2.1.2"
+# Rack::Timeout 
+gem 'rack-timeout'
 # Autoprefixer
 gem 'autoprefixer-rails'
 # Bcrypt for password hashing
@@ -33,7 +35,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
