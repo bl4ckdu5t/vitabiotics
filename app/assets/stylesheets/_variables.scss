@@ -15,8 +15,7 @@ $pale-sky: #6b717f;
 $midnight-blue: #036;
 $light-green: #98cbad;
 $color-blue-link: #557FA8;
-<% @preferences = Preference.find(1) %>
-$color-vitabiotics: rgb(<%= @preferences.theme %>) !global;
+$color-vitabiotics: rgb(221, 17, 66) !global;
 $color-wine-fade: #c66;
 $color-orange-1: #FAB782;
 $color-light-green: #76E0A2;
