@@ -2,8 +2,8 @@
 	<h1>Announcements</h1>
 	<ul class="broken-list list">
 		<% @announcements.map do |a| %>
-		<li class="deptname">
-			<%= a.message %>
+		<li class="deptname" title="<%= a.message %>">
+			<%= a.message[0, 50] %>
 			<span><%= a.sender == current_user.id ? "you" : "#{User.find(a.sender).name}" %></span>
 			<time><%= a.created_at.strftime('%e %B, %Y') %></time>
 		</li>

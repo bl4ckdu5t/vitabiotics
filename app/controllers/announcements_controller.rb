@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+	before_action :require_login
 	before_filter :init
 	def index
 		@announcements = Announcement.where(receiver: current_user.id).order('created_at DESC')
@@ -23,4 +24,9 @@ class AnnouncementsController < ApplicationController
 	def init
 		@preferences = Preference.find(1)
 	end
+	def require_login
+    unless session[:user_id].present?
+      redirect_to root_url
+    end
+  end
 end

@@ -42,6 +42,23 @@ var ready = function(){
 	});
 	// Select 2 on page loads
 	$('select').select2();
+	// Twitter-like countdown for announcement
+	var left = 50
+    $('#text_counter').text(' ' + left);
+
+        $('#status').keyup(function () {
+
+        left = 50 - $(this).val().length;
+
+        if(left < 0){
+            $('#text_counter').addClass("overlimit");
+        }
+        if(left >= 0){
+            $('#text_counter').removeClass("overlimit");
+        }
+
+        $('#text_counter').text(' ' + left);
+    });
 };
 // Ready Pages
 $(document).ready(ready);

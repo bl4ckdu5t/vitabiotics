@@ -90,8 +90,9 @@
 			</svg><h2>Announcements</h2>
 			<p>Broadcast an announcement</p>
 			<%= form_for @announcement, remote: true, class: 'fancy-form' do |f| %>
-				<%= f.text_area :message, placeholder: 'A brief message to everyone...' %>
+				<%= f.text_area :message, placeholder: 'A brief message to everyone...', id: 'status', maxlength: '50' %>
 				<%= f.submit :Broadcast %>
+				<span id="text_counter" class="fr"></span>
 			<% end %>
 		</div>
 
