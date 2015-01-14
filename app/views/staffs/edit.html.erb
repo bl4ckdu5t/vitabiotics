@@ -20,7 +20,18 @@
 				<%= f.label :gender %>
 				<%= f.select :gender, options_for_select(@genders, @staff.gender) %>
 			</p>
-			<p class="formline"><%= f.label :date_of_birth, 'Date of Birth' %><%= f.date_field :date_of_birth, value: @staff.date_of_birth %></p>
+			<p class="formline">
+				<%= label_tag :birth_year, 'Year of Birth' %>
+				<%= select_tag :birth_year, options_for_select(@years, @staff.date_of_birth.to_datetime.strftime('%Y')) %>
+			</p>
+			<p class="formline">
+				<%= label_tag :birth_month, 'Month of Birth' %>
+				<%= select_tag :birth_month, options_for_select(@months, @staff.date_of_birth.to_datetime.strftime('%B')) %>
+			</p>
+			<p class="formline">
+				<%= label_tag :birth_day, 'Day of Birth' %>
+				<%= select_tag :birth_day, options_for_select(@days, @staff.date_of_birth.to_datetime.strftime('%e').gsub(' ', '')) %>
+			</p>
 			<p class="formline">
 				<%= f.label :marital_status, 'Marital Status' %>
 				<%= f.select :marital_status, options_for_select(@statuses, @staff.marital_status) %>

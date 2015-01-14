@@ -14,6 +14,7 @@ class StaffsController < ApplicationController
         	end
         	staff_params[:avatar] = uploaded_io.original_filename
 		end
+		staff_params[:date_of_birth] = "#{params[:birth_day]} #{params[:birth_month]}, #{params[:birth_year]}"
 		@staff = Staff.new(staff_params)
 		if @staff.save
 			Activity.new({'user_id' => current_user.id, 'activity' => "Created a new staff" }).save
@@ -37,6 +38,7 @@ class StaffsController < ApplicationController
         	end
         	staff_params[:avatar] = uploaded_io.original_filename
 		end
+		staff_params[:date_of_birth] = "#{params[:birth_day]} #{params[:birth_month]}, #{params[:birth_year]}"
 		updated = @staff.update_attributes(staff_params)
 		if updated
 			Activity.new({'user_id' => current_user.id, 'activity' => "Updated a staff data" }).save
@@ -62,6 +64,12 @@ class StaffsController < ApplicationController
 		@designation = Department.where(parent: '')
 		@departments = @department.all.map { |dept| [dept.name, dept.name.downcase] }
 		@designations = @designation.all.map { |dept| [dept.name, dept.name.downcase] }
+		this_year = Time.now.strftime('%Y').to_i
+		oldest_year = this_year - 60 # 60 years ago. Staff should be retired if above 60
+		@years = (oldest_year..this_year - 10).map { |y| [y, y] } # 10 yo as youngest staff age
+		@months = Date::MONTHNAMES.map { |m| [m, m] }
+		@months.delete_at(0)
+		@days = (1..31).map { |d| [d, d] }
 	end
 	def staff_params
 		params.require(:staff).permit!

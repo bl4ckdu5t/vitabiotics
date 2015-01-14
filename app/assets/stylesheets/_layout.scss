@@ -294,10 +294,13 @@ header {
       margin-top: 20px;
       margin-bottom: 5px;
       color: $black;
+      @include ellipsis-line(150px);
+      display: inline-block;
       &:hover {
         color: #666666;
       }
     }
+    >span{ display: block; }
   }
 }
 

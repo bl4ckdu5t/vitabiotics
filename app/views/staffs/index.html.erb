@@ -7,7 +7,9 @@
 		<% else %>
 		<img src="/uploads/<%= staff.avatar %>" alt="<%= staff.surname %>" class="thumbnail">
 		<% end %>
-		<h3><%= link_to "#{staff.surname} #{staff.othernames.split(' ')[0]}", staff_path(staff.id) %></a></h3>
+		<h3 title="<%= "#{staff.surname} #{staff.othernames}" %>">
+			<%= link_to "#{staff.surname} #{staff.othernames.split(' ')[0]}", staff_path(staff.id) %>
+		</h3>
 		<span><%= staff.designation %></span>
 	</div>
 	<% end %>
