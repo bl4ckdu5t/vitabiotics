@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout global:
+  layout 'global'
   def new
     if current_user.present?
       redirect_to dashboard_path
@@ -16,6 +16,17 @@ class SessionsController < ApplicationController
   		flash.now.alert = "Invalid email or password"
   		render "new"
   	end
+  end
+
+  def forgot
+    if params[:email].present?
+      exists = User.where(email: params[:email]).first
+      if exists
+        redirect_to :back, notice: 'A link has been sent to your email. Follow the link'
+      else
+        redirect_to :back, notice: 'The email is not registered. Contact your administrator'
+      end
+    end
   end
 
   def destroy

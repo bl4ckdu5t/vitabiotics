@@ -1,0 +1,15 @@
+<% content_for :title do %>
+<title>Reset password - Vitabiotics</title>
+<% end %>
+<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}", class: 'login-alert' %>
+<% end %>
+<div class="login-form" style="height:220px">
+	<div class="top-colors"><div></div><div></div><div></div><div></div></div>
+	<div class="login-header"></div>
+	<%= form_tag forgot_path, class: 'clearfix' do %>
+		<%= label_tag :new_password, 'Enter a new password' %>
+		<%= password_field_tag :new_password, placeholder: '******' %>
+		<button type="submit">Confirm Password Change</button>
+	<% end %>
+</div>

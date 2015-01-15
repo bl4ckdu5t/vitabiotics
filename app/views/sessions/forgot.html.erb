@@ -1,0 +1,14 @@
+<% content_for :title do %>
+<title>Forgot password - Vitabiotics</title>
+<% end %>
+<%= content_tag :div, notice, class: 'login-alert' %>
+<div class="login-form" style="height:220px">
+	<div class="top-colors"><div></div><div></div><div></div><div></div></div>
+	<div class="login-header"></div>
+	<%= form_tag forgot_path, method: 'get', class: 'clearfix' do %>
+		<%= label_tag :email %>
+		<%= text_field_tag :email, params[:email], placeholder: 'Email', type: 'email' %>
+		<button type="submit">Recover Password</button>
+	<% end %>
+</div>
+<div class="login-links"><a href="< %= root_url %>">Back to website</a></div>

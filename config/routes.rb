@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'dashboard/preferences' => 'dashboard#preferences', as: :dashboard_setting
   get 'dashboard/records' => 'dashboard#records', as: :dashboard_records
   get 'dashboard' => 'dashboard#index', as: :dashboard
-  get 'login' => 'sessions#new'
+  get 'login'   => 'sessions#new'
+  get 'forgot'  => 'sessions#forgot'
 
   root 'sessions#new'
 end
