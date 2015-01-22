@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
+gem 'paperclip'
+gem 'aws-sdk'
 # Rack::Timeout 
 gem 'rack-timeout'
 # Autoprefixer
