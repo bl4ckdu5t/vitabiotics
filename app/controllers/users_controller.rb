@@ -25,15 +25,12 @@ class UsersController < ApplicationController
     if user_params[:current].present? && !confirmed
       redirect_to :back, alert: "Current Password is not valid"
     else
-      @user.name = "#{user_params[:firstname]} #{user_params[:lastname]}"
-      @user.email = user_params[:email]
-      @user.password = user_params[:password] if user_params[:password] != ""
-      @user.role = user_params[:role] if user_params[:role].present?
-      if @user.save
-        Activity.new({'user_id' => current_user.id, 'activity' => "Updated a user" }).save
-        redirect_to :back, alert: "Account Updated"
+      name = "#{user_params[:firstname]} #{user_params[:lastname]}"
+      if @user.update(user_params.except(:firstname, :lastname).merge(name: name))
+       Activity.new({'user_id' => current_user.id, 'activity' => "Updated a user" }).save
+       redirect_to :back, alert: "Account Updated"
       else
-        redirect_to :back, alert: @user.errors.full_messages
+       redirect_to :back, alert: @user.errors.full_messages
       end
     end
   end
