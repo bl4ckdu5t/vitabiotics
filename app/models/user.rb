@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :password, :on => :create
 	validates_presence_of :email
 	validates_uniqueness_of :email
-	has_attached_file :avatar, styles: {
+	has_attached_file :avatar, bucket: 'vitabiotics-assets', styles: {
 		thumb: '100x100>',
 		square: '200x200#',
 		medium: '300x300>'
