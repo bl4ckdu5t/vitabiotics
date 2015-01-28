@@ -5,7 +5,7 @@
 		<li class="dotted deptname">
 			<strong><%= "#{Staff.find(attendance.staff_id).surname} #{Staff.find(attendance.staff_id).othernames}" %></strong>
 			<span><%= attendance.presence == true ? 'present' : 'absent' %></span>
-			<time><%= attendance.date.strftime('%e %B, %Y') %></time>
+			<time><%= attendance.date.strftime('%e %B, %Y') if attendance.date %></time>
 			<%= link_to '<button>View detailed</button>'.html_safe, attendance_path(attendance.id), class: 'link', style: 'top: 5px' %>
 		</li>
 		<% end %>

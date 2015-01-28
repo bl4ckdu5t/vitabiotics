@@ -5,7 +5,7 @@
 		<li class="dotted deptname">
 			<strong><%= "#{Staff.find(relief.staff_id).surname} #{Staff.find(relief.staff_id).othernames}" %></strong>
 			<span><%= "#{relief.category.capitalize}" %></span>
-			<time><%= relief.date.strftime('%e %B, %Y') %></time>
+			<time><%= relief.date.strftime('%e %B, %Y') if relief.date %></time>
 			<%= link_to '<button>View detailed</button>'.html_safe, relief_path(relief.id), class: 'link', style: 'top: 5px' %>
 		</li>
 		<% end %>

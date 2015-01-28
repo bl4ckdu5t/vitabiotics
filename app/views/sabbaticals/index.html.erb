@@ -5,7 +5,7 @@
 		<li class="dotted deptname">
 			<strong><%= "#{Staff.find(sabbatical.staff_id).surname} #{Staff.find(sabbatical.staff_id).othernames}" %></strong>
 			<span><%= "#{sabbatical.category} leave" %></span>
-			<time>From: <%= sabbatical.commence_date.strftime('%e %B, %Y') %></time>
+			<time>From: <%= sabbatical.commence_date.strftime('%e %B, %Y') if sabbatical.commence_date %></time>
 			<%= link_to '<button>View detailed</button>'.html_safe, sabbatical_path(sabbatical.id), class: 'link', style: 'top: 5px' %>
 		</li>
 		<% end %>
