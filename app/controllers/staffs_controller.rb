@@ -7,13 +7,6 @@ class StaffsController < ApplicationController
 		@staff = Staff.new
 	end
 	def create
-		uploaded_io = params[:staff][:avatar]
-		if uploaded_io.present?
-        	File.open(Rails.root.join('public','uploads', uploaded_io.original_filename), 'wb') do |file|
-          		file.write(uploaded_io.read)
-        	end
-        	staff_params[:avatar] = uploaded_io.original_filename
-		end
 		staff_params[:date_of_birth] = "#{params[:birth_day]} #{params[:birth_month]}, #{params[:birth_year]}"
 		@staff = Staff.new(staff_params)
 		if @staff.save
@@ -31,13 +24,6 @@ class StaffsController < ApplicationController
 	end
 	def update
 		@staff = Staff.find(params[:id])
-		uploaded_io = params[:staff][:avatar]
-		if uploaded_io.present?
-        	File.open(Rails.root.join('public','uploads', uploaded_io.original_filename), 'wb') do |file|
-          		file.write(uploaded_io.read)
-        	end
-        	staff_params[:avatar] = uploaded_io.original_filename
-		end
 		staff_params[:date_of_birth] = "#{params[:birth_day]} #{params[:birth_month]}, #{params[:birth_year]}"
 		updated = @staff.update_attributes(staff_params)
 		if updated

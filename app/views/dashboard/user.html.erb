@@ -5,12 +5,8 @@
 			<%= content_tag :p, flash.alert, class: 'notifier' %>
 			<%= form_for @user_update do |f| %>
 			<p>
-				<%= f.label :firstname %>
-				<%= f.text_field :firstname, value: "#{current_user.name == nil ? '' : current_user.name.split(' ')[0]}" %>
-			</p>
-			<p>
-				<%= f.label :lastname %>
-				<%= f.text_field :lastname, value: "#{current_user.name == nil ? '' : current_user.name.split(' ')[1]}" %>
+				<%= f.label :name, 'Full Name' %>
+				<%= f.text_field :name, value: "#{current_user.name == nil ? '' : current_user.name}", placeholder: 'e.g John Doe' %>
 			</p>
 			<p>
 				<%= f.label :email %>
