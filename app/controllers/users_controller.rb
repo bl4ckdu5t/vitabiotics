@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :role, :password, :avatar, :firstname, :lastname, :current)
+    params.require(:user).permit(:email, :role, :password, :avatar, :name, :current)
   end
   def init
     @preferences = Preference.find(1)
