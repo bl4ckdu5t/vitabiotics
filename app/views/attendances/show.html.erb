@@ -10,6 +10,6 @@
 	<div class="entry">
 		<em>Attendance Record for <%= "#{Staff.find(@attendance.staff_id).surname} #{Staff.find(@attendance.staff_id).othernames}" %></em>
 		<p><strong>Presence:</strong><span><%= @attendance.presence == true ? 'present' : 'absent' %></span></p>
-		<p><strong>Date:</strong><span><%= "#{@attendance.date.strftime('%e %B, %Y')}" %></span></p>
+		<p><strong>Date:</strong><span><%= "#{@attendance.date.strftime('%e %B, %Y')}" if @attendance.date %></span></p>
 	</div>
 </section>

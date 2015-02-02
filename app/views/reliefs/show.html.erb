@@ -10,9 +10,9 @@
 	<div class="entry">
 		<em>Relief Record for <%= "#{Staff.find(@relief.staff_id).surname} #{Staff.find(@relief.staff_id).othernames}" %></em>
 		<p><strong>Category:</strong><span><%= "#{@relief.category}".capitalize %></span></p>
-		<p><strong>Time In:</strong><span><%= "#{@relief.time_in.strftime("%r")}" %></span></p>
-		<p><strong>Time Out:</strong><span><%= "#{@relief.time_out.strftime("%r")}" %></span></p>
-		<p><strong>Date:</strong><span><%= "#{@relief.date.strftime('%e %B, %Y')}" %></span></p>
+		<p><strong>Time In:</strong><span><%= "#{@relief.time_in.strftime("%r")}" if @relief.time_in %></span></p>
+		<p><strong>Time Out:</strong><span><%= "#{@relief.time_out.strftime("%r")}" if @relief.time_out %></span></p>
+		<p><strong>Date:</strong><span><%= "#{@relief.date.strftime('%e %B, %Y')}" if @relief.date %></span></p>
 		<p><strong>Reason:</strong><span><%= @relief.reason %></span><br><br><br></p>
 	</div>
 </section>
