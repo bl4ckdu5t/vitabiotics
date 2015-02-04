@@ -3,7 +3,8 @@ class Staff < ActiveRecord::Base
 		thumb: '100x100>',
 		square: '200x200#',
 		medium: '300x300>'
-	}, default_url: ':attachment/missing.png', storage: :s3
+	}, default_url: ':attachment/missing.png', storage: :s3,
+	s3_host_name: 's3-us-west-2.amazonaws.com'
 	# Validate the attached image is image/jpg, image/png, etc
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end
