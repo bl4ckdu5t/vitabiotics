@@ -64,6 +64,9 @@ var ready = function(){
     $(document).on('click','a',function(){
     	$('.loader').toggle();
     });
+    $('li').has('a').click(function(){
+    	$('loader').toggle();
+    })
 };
 // Ready Pages
 $(document).ready(ready);
