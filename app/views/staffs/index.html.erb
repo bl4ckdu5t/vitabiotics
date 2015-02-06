@@ -5,7 +5,7 @@
 		<% if staff.avatar.eql? nil %>
 		<%= image_tag "vader.jpg", class: 'thumbnail' %>
 		<% else %>
-		<img src="/uploads/<%= staff.avatar %>" alt="<%= staff.surname %>" class="thumbnail">
+		<img src="<%= staff.avatar %>" alt="<%= staff.surname %>" class="thumbnail">
 		<% end %>
 		<h3 title="<%= "#{staff.surname} #{staff.othernames}" %>">
 			<%= link_to "#{staff.surname} #{staff.othernames.split(' ')[0]}", staff_path(staff.id) %>

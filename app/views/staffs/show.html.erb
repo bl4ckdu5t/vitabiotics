@@ -1,7 +1,7 @@
 <% if @staff.avatar.eql? nil %>
 <%= image_tag 'vader.jpg',alt: 'profile',class: 'staffImage' %>
 <% else %>
-<img src="/uploads/<%= @staff.avatar %>" class="staffImage" alt="profile">
+<img src="<%= @staff.avatar %>" class="staffImage" alt="profile">
 <% end %>
 <section class="staffData">
 	<div class="topbar">
