@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       redirect_to :back, alert: "Current Password is not valid"
     else
       name = "#{user_params[:firstname]} #{user_params[:lastname]}"
-      if @user.update(user_params)
+      if @user.update(user_params.except(:firstname, :lastname).merge(name: name))
        Activity.new({'user_id' => current_user.id, 'activity' => "Updated a user" }).save
        redirect_to :back, alert: "Account Updated"
       else
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :role, :password, :avatar, :name, :current)
+    params.require(:user).permit(:email, :role, :password, :avatar, :firstname, :lastname, :current)
   end
   def init
     @preferences = Preference.find(1)
