@@ -20,4 +20,5 @@
 //= require pickadate/lib/picker.date
 //= require pickadate/lib/picker.time
 //= require select2/select2
+//= require spin.js/spin
 //= require_tree .

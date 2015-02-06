@@ -59,6 +59,11 @@ var ready = function(){
 
         $('#text_counter').text(' ' + left);
     });
+    var target = document.getElementById('el');
+    var spinner = new Spinner({color:'#fff', lines: 12}).spin(target);
+    $(document).on('click','a',function(){
+    	$('.loader').toggle();
+    });
 };
 // Ready Pages
 $(document).ready(ready);
