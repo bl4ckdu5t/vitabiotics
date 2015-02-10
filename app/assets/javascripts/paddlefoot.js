@@ -61,7 +61,7 @@ var ready = function(){
     });
     var target = document.getElementById('el');
     var spinner = new Spinner({color:'#fff', lines: 12}).spin(target);
-    $(document).on('click','a',function(){
+    $(document).on('click','a:not([href="javascript:print()"])',function(){
     	$('.loader').toggle();
     });
     $('li').has('a').click(function(){
