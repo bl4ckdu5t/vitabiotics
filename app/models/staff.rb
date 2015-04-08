@@ -1,4 +1,8 @@
 class Staff < ActiveRecord::Base
+	has_many :loans, :dependent => :destroy
+	has_many :sabbaticals, :dependent => :destroy
+	has_many :attendances, :dependent => :destroy
+	has_many :reliefs, :dependent => :destroy
 	has_attached_file :avatar, bucket: 'vitabiotics-assets', styles: {
 		thumb: '100x100>',
 		square: '200x200#',
