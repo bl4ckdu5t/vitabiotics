@@ -69,7 +69,7 @@
 			<ul class="accord-style">
 				<% @departments.each do |department| %>
 				<li <%= instancevars(department.name).present? ? "data-accord=#{nameslug(department.name)}":'' %>>
-					<%= link_to "#{department.name}", department_cat_path(department.name.downcase.gsub(' ','-')) %>
+					<%= link_to "#{department.name}", department.name.downcase.gsub(' ','-') %>
 				</li>
 					<% if(instancevars(department.name).present?) %>
 					<ul id="<%= nameslug(department.name) %>">
